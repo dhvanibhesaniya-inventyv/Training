@@ -41,8 +41,8 @@ body {
   border-radius: 50%;
   margin-right: 60px;
   position: absolute;
-  top:35%;
-  left:80%;
+  top:36%;
+  left:81%;
   transform:translate(-50%, -50%) ;
 z-index: 9999;
 }
@@ -84,12 +84,13 @@ z-index: 9999;
     flex-grow: 1; /* Labels grow to fill remaining space in the row */
     display: inline-block;
     padding: 10px 20px;
-    background-color: #eee;
+    background-color: #9e4848;
     cursor: pointer;
     transition: all 0.2s ease;
     transform: translateY(0);
     /* margin-left: -3rem; */
     padding-left: 3rem;
+    text-align: center;
   }
   
   
@@ -104,7 +105,7 @@ z-index: 9999;
   
   /* Styles for the selected tab */
   input[type="radio"]:checked + .tab-label {
-    background-color: white;
+    /* background-color: rgb(96, 63, 63); */
     box-shadow: 0 -4px 4px silver;
     transform: translateY(4px);
    

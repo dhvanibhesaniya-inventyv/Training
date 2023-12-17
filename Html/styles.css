@@ -4,11 +4,16 @@ body {
 }
 
 .text-container {
-    width: 800px; /* Set your desired width */
+    width: 750px; /* Set your desired width */
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3; /* Limit to 3 lines */
+    font-size: larger;
+    border: solid gray;
+    /* border-radius: 10%; */
+    color: rgb(36, 33, 33); 
+    background-color: burlywood;
   }
   
 
@@ -21,7 +26,8 @@ body {
 }
 
 .left-side {
-  background-color: #77683d;
+  /* background-color: #77683d; */
+  background-image: url(./assets/image/symbol-scatter-haikei.svg);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,6 +47,7 @@ body {
     height: 200px;
     object-fit: cover;
     border-radius: 50%;
+    margin-bottom: 20px;
 }
 
 .circle-image2 {
@@ -79,6 +86,7 @@ z-index: 9999;
     flex-direction: row; /* Items are arranged in a row */
     flex-wrap: wrap; /* Allow items to wrap to new rows, because the  */
     width:75%;
+    
   
   }
   
@@ -102,6 +110,7 @@ z-index: 9999;
     display: none; /* Hide tab content by default */
     padding: 20px;
     border: 1px solid lightgray;
+    /* border-radius: 10%; */
     order: 1; /* Initial order value for tab content */
     flex-basis: 100%; /* Content takes up full width in its own row */
   }

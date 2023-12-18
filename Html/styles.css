@@ -20,7 +20,7 @@ body {
 .container {
     display: grid;
     grid-template-columns: 65% 35%;
-    height: 930px;
+    height: 965px;
     border: solid black;
     margin: 10px;
 }

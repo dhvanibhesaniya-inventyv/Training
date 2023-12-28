@@ -56,6 +56,7 @@ function mergeArray(fe, myArray) {
 
 
   
+// extra .....  
 
 // (function f1 () {
 //     let arr = [1,2,3,4,5]
@@ -223,3 +224,77 @@ console.log('Fibonacci Series:', fibonacciSeries);
 console.log('Prime Numbers in Fibonacci Series:', primesInFibonacci);
 console.log('Differences between Consecutive Primes:', differences);
 console.log('Sum of Positive Differences:', positiveSum);
+
+
+
+
+// question 4:  using js  create all http methods (get,push,put,delete,patch) on json api,   and also check  this in both http v1  and http v2
+
+
+// Replace 'your_json_file.json' with the path to your JSON file
+
+// Replace 'your_json_file.json' with the path to your JSON file
+
+function getData() {
+  return new Promise((resolve, reject) => {
+    fetch('dummy.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        resolve(data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+function deleteData() {
+  return new Promise((resolve, reject) => {
+    fetch('dummy.json', {
+      method: 'DELETE'
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        resolve(data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+
+// Example usage:
+// GET method usage
+getData()
+  .then(data => {
+    //console.log('Data retrieved:', data);
+    const firstTenEntries = data.slice(0, 10);
+    console.log('First 10 entries:', firstTenEntries);
+
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+
+// // DELETE method usage
+
+// deleteData()
+//   .then(data => {
+//     console.log('Data deleted successfully:', data);
+//     // Handle successful deletion
+//   })
+//   .catch(error => {
+//     console.error('Error deleting data:', error);
+//   });
+

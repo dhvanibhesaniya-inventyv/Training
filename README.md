@@ -5,5 +5,5 @@
 
 
 # Html:
-=> html, css, js files 
+=> html, css, js files (  contains script code for different questions given)
 

@@ -1,3 +1,5 @@
+//   question 1 :  
+
 function mergeArray(fe, myArray) {
     return new Promise((resolve, reject) => {
       var secondarray = [6, 7, 8, 9];
@@ -96,7 +98,7 @@ function mergeArray(fe, myArray) {
 
 
 
-// nCr
+// question 2: nCr
 
 
 // Function to calculate combination (nCr) using recursion
@@ -152,7 +154,7 @@ console.log('Stored words from arrays:', storedWords);
 
 
 
-//  nth fibonatchi not grater then 1000, take prime out and difference it and sum of all difference using rcursion
+//  question 3:  nth fibonatchi not grater then 1000, take prime out and difference it and sum of all difference using rcursion
 
 // Function to generate the Fibonacci series up to a limit
 function generateFibonacci(limit, series = [0, 1]) {

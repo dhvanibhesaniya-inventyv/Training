@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+}
+
+.pyramid {
+  margin: 20px auto; /* Adjust the margin as needed */
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.prime {
+  color: green; /* Add your preferred styling for prime numbers */
+}

@@ -1,9 +1,11 @@
 # Training Repo
 
 # Logic Building :
-=> codes files
+=> Simple Logical code files
 
 
 # Html:
-=> html, css, js files (  contains script code for different questions given)
+=> html, css, js files (  contains script code for different questions given )
 
+# Main:
+=>  Html, Css, Js files ( displayed a pascal tree through javascript with primenumbers and error ratio ) 

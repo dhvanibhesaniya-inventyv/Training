@@ -1,10 +1,10 @@
 # Question :  Develope a program that reads a number which is 4 digit long, then get combinations and find prime numbers from it , then geththe highest prime number and make a pascle triangle using that number, get output in html and show  display the prime numbers in pascle traangle with underline.
 
 
-## Code
+## Code :
 
 
-### Explain
+## Explain :
 
 This JavaScript code performs several operations based on user input and generates a Pascal's Triangle:
 
@@ -29,7 +29,7 @@ It finds and displays the prime numbers that are not present in the Pascal's Tri
 The code involves handling user input, generating permutations, finding prime numbers, constructing Pascal's Triangle, and calculating and displaying the error ratio based on prime numbers present in the Pascal's Triangle compared to the total count of prime numbers.
 
 
-#### Author
+### Author :
 
 DHVANI BHESANIYA.J
 

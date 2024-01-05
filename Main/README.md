@@ -31,5 +31,5 @@ The code involves handling user input, generating permutations, finding prime nu
 
 ### Author :
 
-DHVANI BHESANIYA.J
+DHVANI BHESANIYA .J
 

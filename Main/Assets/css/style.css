@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  margin-top: 10%;
 }
 
 .pyramid {
@@ -12,5 +13,5 @@ body {
 }
 
 .prime {
-  color: green; /* Add your preferred styling for prime numbers */
+  color: rgb(255, 0, 0); /* Add your preferred styling for prime numbers */
 }

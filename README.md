@@ -1,6 +1,7 @@
 # Training Repo
 # Work  done through my industrial internship
 
+### explained folder structure and whats inside.
 
 # Logic Building :
 

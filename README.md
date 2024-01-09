@@ -23,7 +23,7 @@ This repository encompasses the work completed during an industrial internship. 
 
 ### 4. Rust:
 
-- Houses tasks related to the Rust programming language.
+-  Tasks related to the Rust programming language.
 
 Please explore individual folders for detailed information and specific implementations.
 

@@ -1,24 +1,30 @@
-# Training Repo
-# Work  done through my industrial internship
- 
-### Explained folder structure and whats inside.
+# Training Repository: Industrial Internship Project
 
-<br />
-# Logic Building :
+This repository encompasses the work completed during an industrial internship. Below is an explanation of the folder structure and its contents:
 
-=> Simple Logical code files.
+## Folder Structure:
 
-<br />
-# Html :
+### 1. Logic Building:
 
-=> html, css, js files (  contains Html login , registration page and a script code for different questions given in .js file ).
+- Contains simple logical code files aimed at enhancing logical reasoning.
 
-<br />
-# Main :
+### 2. Html:
 
-=>  Html, Css, Js files ( displayed a pascal tree through javascript with primenumbers and error ratio ).
+- Includes HTML, CSS, and JavaScript files featuring:
+    - Login and registration pages
+    - Script code addressing various questions specified within the .js file.
 
-<br />
-# Rust :
+### 3. Main:
 
-=> Rust Programming Language Tasks.
+- Comprises HTML, CSS, and JavaScript files that showcase:
+    - Display of a Pascal tree through JavaScript
+    - Presentation of prime numbers
+    - Error ratio analysis.
+
+### 4. Rust:
+
+- Houses tasks related to the Rust programming language.
+
+Please explore individual folders for detailed information and specific implementations.
+
+Feel free to review, suggest changes, or contribute to this repository. Your feedback is highly appreciated!

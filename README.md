@@ -1,4 +1,6 @@
 # Training Repo
+# Work  done through my industrial internship
+
 
 # Logic Building :
 

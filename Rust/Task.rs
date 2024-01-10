@@ -9,7 +9,7 @@ impl Area {
     }
 
     fn area_square(&self) {
-        let side = if self.length > self.breath {
+        let side = if self.length >= self.breath {
             self.breath
         } else {
             self.length
@@ -19,11 +19,7 @@ impl Area {
     }
 
     fn area_circle(&self) {
-        let radius = if self.length < self.breath {
-            self.length / 2.0
-        } else {
-            self.breath / 2.0
-        };
+        let radius = self.length.min(self.breath) / 2.0;
 
         println!("Area of circle is : {}", 3.14 * radius * radius);
     }
@@ -31,8 +27,8 @@ impl Area {
 
 fn main() {
     let values = Area {
-        length: 10.0,
-        breath: 4.0,
+        length: 5.0,
+        breath: 5.0,
     };
 
     values.area_rectangle();

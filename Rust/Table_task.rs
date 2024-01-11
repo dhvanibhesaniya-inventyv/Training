@@ -34,18 +34,34 @@ struct Table {
     rows: Vec<Row>,
     height: f32,
     width: f32,
+    total_num_rows: usize,
+    total_num_cells: usize,
 }
 
 impl Table {
     fn new(rows: Vec<Row>) -> Self {
+        let total_num_rows = rows.len();
+        let total_num_cells = rows.iter().map(|row| row.cells.len()).sum(); // Sum of the number of cells in each row
         let height = rows.iter().map(|row| row.height).sum(); // Sum of row heights as table height
         let width = rows[0].width; // Assuming all rows in a table have the same width
-        Table { rows, height, width }
+        Table {
+            rows,
+            height,
+            width,
+            total_num_rows,
+            total_num_cells,
+        }
     }
 }
 
 impl fmt::Display for Table {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(
+            f,
+            "Total Rows: {}, Total Cells: {}\n",
+            self.total_num_rows, self.total_num_cells
+        );
+
         for row in &self.rows {
             for cell in &row.cells {
                 write!(f, "{:.2} ", cell.value)?;

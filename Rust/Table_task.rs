@@ -1,118 +1,308 @@
-use std::fmt;
 use std::io;
-
-#[derive(Debug, Clone)]
-struct Cell {
-    height: f32,
-    width: f32,
-    value: f32,
+#[derive(Debug)]
+struct Cell{
+    height:u32,
+    width:u32,
+    value:u32,
 }
 
-impl Cell {
-    fn new(height: f32, width: f32, value: f32) -> Self {
-        Cell { height, width, value }
+impl Cell{
+
+fn data_assign (height: u32,width: u32,value: u32) -> Cell{
+    Cell {
+        height,
+        width,
+        value
     }
 }
 
-#[derive(Debug, Clone)]
-struct Row {
-    cells: Vec<Cell>,
-    height: f32,
-    width: f32,
-}
-
-impl Row {
-    fn new(cells: Vec<Cell>) -> Self {
-        let height = cells.iter().map(|cell| cell.height).fold(0.0, f32::max); // Maximum height of all cells
-        let width = cells.iter().map(|cell| cell.width).sum(); // Sum of cell widths as row width
-        Row { cells, height, width }
-    }
 }
 
 #[derive(Debug)]
-struct Table {
-    rows: Vec<Row>,
-    height: f32,
-    width: f32,
-    total_num_rows: usize,
-    total_num_cells: usize,
+
+struct Row{
+    r_height:u32,
+    r_width:u32,
+    cells: Vec<Cell>,
+    total_cells:u32,
 }
 
-impl Table {
-    fn new(rows: Vec<Row>) -> Self {
-        let total_num_rows = rows.len();
-        let total_num_cells = rows.iter().map(|row| row.cells.len()).sum(); // Sum of the number of cells in each row
-        let height = rows.iter().map(|row| row.height).sum(); // Sum of row heights as table height
-        let width = rows[0].width; // Assuming all rows in a table have the same width
-        Table {
-            rows,
-            height,
-            width,
-            total_num_rows,
-            total_num_cells,
-        }
-    }
-}
 
-impl fmt::Display for Table {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(
-            f,
-            "Total Rows: {}, Total Cells: {}\n",
-            self.total_num_rows, self.total_num_cells
-        );
+impl Row{
 
-        for row in &self.rows {
-            for cell in &row.cells {
-                write!(f, "{:.2} ", cell.value)?;
+    fn row_data(cells: Vec<Cell>) -> Row{
+        let mut r_height: u32 = 0;
+        let mut r_width: u32 = 0;
+        let total_cells: u32 = cells.len() as u32;
+
+
+        for i in 0..cells.len(){
+            if r_height <= cells[i].height{
+                r_height = cells[i].height;
             }
-            writeln!(f)?;
-        }
-        Ok(())
-    }
-}
-
-fn main() {
-    // Get user input for the number of rows
-    let num_rows = get_user_input("Enter the number of rows: ").round() as usize;
-
-    // Get user input for the number of cells per row
-    let num_cells = get_user_input("Enter the number of cells per row: ").round() as usize;
-
-    // Create rows with user-specified properties
-    let mut rows = Vec::new();
-
-    for _ in 0..num_rows {
-        let mut cells = Vec::new();
-
-        for _ in 0..num_cells {
-            let height = get_user_input("Enter the height for the cell: ");
-            let width = get_user_input("Enter the width for the cell: ");
-            let value = get_user_input("Enter the value for the cell: ");
-
-            cells.push(Cell::new(height, width, value));
+            r_width += cells[i].width;
         }
 
-        rows.push(Row::new(cells));
+        Row { r_height, r_width, cells, total_cells }
     }
 
-    // Create the table with the rows
-    let table = Table::new(rows);
+    fn update_row_data(&mut self) {
+        self.r_height = 0;
+        self.r_width = 0;
 
-    // Print the table data
-    println!("{:?}", table);
-}
-
-fn get_user_input(prompt: &str) -> f32 {
-    loop {
-        println!("{}", prompt);
-
-        let mut input = String::new();
-        io::stdin().read_line(&mut input).expect("Failed to read line");
-
-        match input.trim().parse() {
-            Ok(value) => return value,
-            Err(_) => println!("Invalid input. Please enter a valid number."),
+        for i in 0..self.cells.len() {
+            if self.r_height <= self.cells[i].height {
+                self.r_height = self.cells[i].height;
+            }
+            self.r_width += self.cells[i].width;
         }
     }
+
 }
+
+#[derive(Debug)]
+
+struct Table{
+    rows:Vec<Row> ,  
+    t_height:u32,
+    t_width: u32,
+    t_row: u32,
+    t_cell:u32,
+}
+
+impl Table{
+
+
+    fn table_data(rows:Vec<Row>) -> Table{
+        let mut t_height: u32= 0;
+        let mut t_width: u32 = 0;
+        let mut t_cell: u32 = 0;
+        let t_row: u32 = rows.len() as u32 ;
+
+        for i in 0..rows.len(){
+            if t_width <= rows[i].r_width{
+                t_width = rows[i].r_width;
+            }
+            t_height+=rows[i].r_height;
+            t_cell += rows[i].total_cells;
+        }
+
+        Table { rows,t_height,t_width,t_row,t_cell}
+    }
+
+    fn update_table_data(&mut self) {
+        self.t_height = 0;
+        self.t_width = 0;
+
+        for i in 0..self.rows.len() {
+            if self.t_width <= self.rows[i].r_width {
+                self.t_width = self.rows[i].r_width;
+            }
+            self.t_height += self.rows[i].r_height;
+        }
+    }
+
+}
+
+
+fn read_user_input<T>() -> T
+where
+    T: std::str::FromStr,
+    T::Err: std::fmt::Debug,
+{
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    input.trim().parse().expect("Failed to parse input")
+}
+
+
+fn main(){
+
+
+    let cell1 = Cell::data_assign(1,2,1);
+    let cell2 = Cell::data_assign(2,2,2);
+
+
+    let row1 = Row::row_data(vec!(cell1,cell2));
+    let cell3 = Cell::data_assign(3,2,3);
+    let cell4 = Cell::data_assign(4,2,4);
+    let row2 = Row::row_data(vec!(cell3,cell4));
+    let mut table = Table::table_data(vec!(row1,row2));
+    println!("{:#?}",table);
+
+    println!("");
+    println!("");
+
+    table.rows[1].cells[1] = Cell::data_assign(10,10, 10);
+
+    table.rows[1].update_row_data();
+
+    table.update_table_data();
+    
+
+    println!("{:#?}", table);
+
+    // user input
+
+//     println!("do you want to update any values ?  if yes then enter  'y'  or  'n' .");
+//     let yn: String = read_user_input(); 
+ 
+// if yn == "y"{
+        
+//     println!("Enter the row number to update:");
+//     let row_index: usize = read_user_input();
+    
+//     if row_index >= table.rows.len() {
+//         println!("Invalid row index");
+//         return;
+//     }
+
+//     println!("Enter the cell number to update:");
+//     let cell_index: usize = read_user_input();
+
+//     if cell_index >= table.rows[row_index].cells.len() {
+//         println!("Invalid cell index");
+//         return;
+//     }
+
+//     println!("Enter the cell height:");
+//     let cell_height: u32 = read_user_input();
+
+//     println!("Enter the cell width:");
+//     let cell_width: u32 = read_user_input();
+
+//     println!("Enter the cell value:");
+//     let cell_value: u32 = read_user_input();
+
+//     table.rows[row_index].cells[cell_index] = Cell::data_assign(cell_height, cell_width, cell_value);
+
+//     table.rows[row_index].update_row_data();
+
+//     table.update_table_data();
+
+//     println!("{:#?}", table);
+
+// }else{
+//     println!("thankyou for youy input");
+// }
+
+}
+
+
+
+
+
+
+
+
+
+//------------------------------------------------
+
+
+
+// use std::cell;
+// #[derive(Debug)]
+// struct Cell{
+//     height:u32,
+//     width:u32,
+//     value:u32,
+// }
+
+
+
+// impl Cell{
+
+// fn data_assign (height: u32,width: u32,value: u32) -> Self{
+//     Cell {
+//         height,
+//         width,
+//         value
+//     }
+// }
+
+// }
+
+// #[derive(Debug)]
+
+// struct Row{
+//     r_height:u32,
+//     r_width:u32,
+//     cells: Vec<Cell>,
+//     total_cells:u32,
+// }
+
+
+// impl Row{
+
+//     fn row_data(cells: Vec<Cell>) -> Self{
+//         let mut r_height: u32 = 0;
+//         let mut r_width: u32 = 0;
+//         let total_cells: u32 = cells.len() as u32;
+
+
+//         for i in 0..cells.len(){
+//             if r_height <= cells[i].height{
+//                 r_height = cells[i].height;
+//             }
+//             r_width += cells[i].width;
+//         }
+
+//         Row { r_height, r_width, cells, total_cells }
+
+
+//     }
+
+// }
+
+// #[derive(Debug)]
+
+// struct Table{
+//     rows:Vec<Row> ,  // Vector of Rows
+//     t_height:u32,
+//     t_width: u32,
+//     t_row: u32,
+// }
+
+
+// impl Table{
+
+
+//     fn table_data(rows:Vec<Row>) -> Self{
+//         let mut t_height: u32=0;
+//         let mut t_width: u32 =0;
+//         let t_row: u32 = rows.len() as u32 ;
+
+//         for i in 0..rows.len(){
+//             if t_width <= rows[i].r_width{
+//                 t_width = rows[i].r_width;
+//             }
+//             t_height+=rows[i].r_height;
+//         }
+
+//         Table { rows,t_height,t_width,t_row}
+//     }
+
+
+// }
+
+
+
+
+
+// fn main(){
+
+
+//     let cell1 = Cell::data_assign(1,2,1);
+//     let cell2 = Cell::data_assign(2,2,2);
+
+//     let row1 = Row::row_data(vec!(cell1,cell2));
+//     let cell3 = Cell::data_assign(3,2,3);
+//     let cell4 = Cell::data_assign(4,2,4);
+//     let row2 = Row::row_data(vec!(cell3,cell4));
+//     let table = Table::table_data(vec!(row1,row2));
+
+
+
+//     println!("{:#?}",table);
+
+// }

@@ -1,1 +1,132 @@
-[]
+[
+  {
+    "name": "Advait",
+    "age": 28,
+    "skills": [
+      "C#",
+      "Rust"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Aisha",
+    "age": 25,
+    "skills": [
+      "Rust",
+      "C#"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Diya",
+    "age": 27,
+    "skills": [
+      "Python",
+      "C#"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Kabir",
+    "age": 26,
+    "skills": [
+      "Python",
+      "C#"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Neha",
+    "age": 27,
+    "skills": [
+      "Java",
+      "Java"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Rohan",
+    "age": 28,
+    "skills": [
+      "Rust",
+      "C#"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Aanya",
+    "age": 25,
+    "skills": [
+      "C#",
+      "Java"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Ritvik",
+    "age": 26,
+    "skills": [
+      "Java",
+      "C#"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Pari",
+    "age": 27,
+    "skills": [
+      "Java",
+      "Rust"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Reyansh",
+    "age": 28,
+    "skills": [
+      "C#",
+      "Java"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Ishita",
+    "age": 25,
+    "skills": [
+      "C#",
+      "Python"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Virat",
+    "age": 26,
+    "skills": [
+      "C#",
+      "Java"
+    ],
+    "position": null,
+    "experiance(y)": null
+  },
+  {
+    "name": "Avani",
+    "age": 27,
+    "skills": [
+      "C#",
+      "Rust"
+    ],
+    "position": null,
+    "experiance(y)": null
+  }
+]

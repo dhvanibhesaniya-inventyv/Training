@@ -4,6 +4,7 @@ use std::fs;
 
 use crate::common_struct::Student;
 
+/// Calculate percentage and grade for a student based on their marks.
 
 fn calculate_percentage_and_grade(student: &mut Student) {
     let total_marks: u32 = student.marks.iter().sum();
@@ -21,9 +22,11 @@ fn calculate_percentage_and_grade(student: &mut Student) {
     student.grade = Some(grade.to_string());
 }
 
-pub fn student_main() {
-    // let path = "";
+/// Main function for processing student data, calculating percentage and grade, and updating JSON.
 
+pub fn student_main() {
+    
+ // Read JSON file content
     let content = fs::read_to_string("json_data/student_json/StudentData.json")
         .expect("Failed to read file");
 

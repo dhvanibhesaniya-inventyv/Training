@@ -13,6 +13,8 @@ use crate::common_struct::{Employee,Skill,Position};
 
 // #[warn(unused_must_use)]
 
+/// Main function for categorizing employees into different JSON files based on their position and skills.
+
 pub fn employee_main() {
     let file_content =
         fs::read_to_string("json_data/employee_json/Employee.json").expect("unable to read json file");
@@ -52,6 +54,8 @@ pub fn employee_main() {
             other_employees.push(employee);
         }
     }
+
+        // Convert categorized employees to JSON and write to separate files
 
     let sdev =
         serde_json::to_string_pretty(&soft_dev_employees).expect("unable to convert to json");

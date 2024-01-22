@@ -1,7 +1,16 @@
 use std::io;
-
+use crate::two_string::single_string::main as single_string;
+/// Main function for demonstrating operations on two strings.
 pub fn two_string_main() {
-    // Function to calculate character frequency in a string
+    /// Function to calculate character frequency in a string.
+    ///
+    /// # Arguments
+    ///
+    /// * `s` - The input string for which character frequency needs to be calculated.
+    ///
+    /// # Returns
+    ///
+    /// An array representing the frequency of each character in the input string.
     fn calculate_frequency(s: &str) -> [usize; 26] {
         let mut frequency = [0; 26];
         for ch in s.chars() {
@@ -9,25 +18,30 @@ pub fn two_string_main() {
             if ascii_value >= b'a' && ascii_value <= b'z' {
                 let index = (ascii_value - b'a') as usize;
                 frequency[index] += 1;
-
-                // println!("{}, {}", ch, frequency[index]);
             }
         }
         frequency
     }
 
-    // Get input from the user
-    println!("Enter the first string:");
-    let mut string1 = String::new();
-    io::stdin()
-        .read_line(&mut string1)
-        .expect("Failed to read line");
+    // // Get input from the user
+    // println!("Enter the first string:");
+    // let mut string1 = String::new();
+    // io::stdin()
+    //     .read_line(&mut string1)
+    //     .expect("Failed to read line");
+    
+    let  string1 = String::from("hello world");
 
-    println!("Enter the second string:");
-    let mut string2 = String::new();
-    io::stdin()
-        .read_line(&mut string2)
-        .expect("Failed to read line");
+
+    // println!("Enter the second string:");
+    // let mut string2 = String::new();
+    // io::stdin()
+    //     .read_line(&mut string2)
+    //     .expect("Failed to read line");
+    
+    let  string2 = String::from("hello from inventyv");
+
+
 
     // Calculate frequency of characters in each string
     let frequency1 = calculate_frequency(&string1);
@@ -70,4 +84,49 @@ pub fn two_string_main() {
         "Vector 3 (Character and frequency at corresponding positions): {:?}",
         vector3
     );
+
+
+    // println!("{}",single_string());
+
+    let  new_single_string = single_string();
+
+    let new_replaced_single_string = replace_underscore(new_single_string,&mut vector3);
+
+    println!("{:?}",new_replaced_single_string);
+
+    println!(
+        "Vector 3 (Character and frequency at corresponding positions): {:?}",
+        vector3
+    );
+
+
+}
+
+fn replace_underscore(mut replaced_string:String,vector3: &mut Vec<(char, usize)>)-> String{
+    let mut vector_index = 0;   
+
+    
+
+    for (i, ch) in replaced_string.to_string().chars().enumerate() {
+        if ch == '_' {
+            while let Some((replacement, frequency)) = vector3.get_mut(vector_index) {
+                if *frequency > 0 {
+
+
+                    replaced_string.replace_range(i..i+1, &replacement.to_string());
+                    *frequency -= 1;
+
+                    if *frequency == 0 {
+                        vector3.remove(vector_index);
+                    }
+                    break;
+                } else {
+                    vector_index += 1;
+                }
+            }
+        }
+    }
+
+
+    replaced_string
 }

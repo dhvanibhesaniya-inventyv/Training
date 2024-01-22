@@ -1,9 +1,11 @@
-// dependency  
-// rand = "0.8.5"
 
 use std::{cmp::Ordering, io};
 //  The Rng trait defines methods that random number generators implement,
+// dependency  
+// rand = "0.8.5"
 use rand::Rng;
+
+/// Main function for a guessing game where the user tries to guess a randomly generated number.
 
 pub fn gussing_main() {
     println!(" guess the number! ");

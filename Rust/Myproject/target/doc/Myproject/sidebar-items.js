@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["main"],"mod":["common_struct","employee","student","table_task","two_string"]};

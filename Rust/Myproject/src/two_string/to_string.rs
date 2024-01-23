@@ -1,5 +1,5 @@
-use std::io;
 use crate::two_string::single_string::main as single_string;
+// use std::io;
 /// Main function for demonstrating operations on two strings.
 pub fn two_string_main() {
     /// Function to calculate character frequency in a string.
@@ -29,19 +29,16 @@ pub fn two_string_main() {
     // io::stdin()
     //     .read_line(&mut string1)
     //     .expect("Failed to read line");
-    
-    let  string1 = String::from("hello world");
 
+    let string1 = String::from("hello world");
 
     // println!("Enter the second string:");
     // let mut string2 = String::new();
     // io::stdin()
     //     .read_line(&mut string2)
     //     .expect("Failed to read line");
-    
-    let  string2 = String::from("hello from inventyv");
 
-
+    let string2 = String::from("hello from inventyv");
 
     // Calculate frequency of characters in each string
     let frequency1 = calculate_frequency(&string1);
@@ -85,35 +82,30 @@ pub fn two_string_main() {
         vector3
     );
 
-
     // println!("{}",single_string());
 
-    let  new_single_string = single_string();
+    let new_single_string = single_string();
 
-    let new_replaced_single_string = replace_underscore(new_single_string,&mut vector3);
+    let new_replaced_single_string = replace_underscore(new_single_string, &mut vector3);
 
-    println!("{:?}",new_replaced_single_string);
+    println!("{:?}", new_replaced_single_string);
 
     println!(
         "Vector 3 (Character and frequency at corresponding positions): {:?}",
         vector3
     );
-
-
 }
 
-fn replace_underscore(mut replaced_string:String,vector3: &mut Vec<(char, usize)>)-> String{
-    let mut vector_index = 0;   
+/// this function replace the underscore with the vector 3 values and changing its frequency.
 
-    
+fn replace_underscore(mut replaced_string: String, vector3: &mut Vec<(char, usize)>) -> String {
+    let mut vector_index = 0;
 
     for (i, ch) in replaced_string.to_string().chars().enumerate() {
         if ch == '_' {
             while let Some((replacement, frequency)) = vector3.get_mut(vector_index) {
                 if *frequency > 0 {
-
-
-                    replaced_string.replace_range(i..i+1, &replacement.to_string());
+                    replaced_string.replace_range(i..i + 1, &replacement.to_string());
                     *frequency -= 1;
 
                     if *frequency == 0 {
@@ -126,7 +118,6 @@ fn replace_underscore(mut replaced_string:String,vector3: &mut Vec<(char, usize)
             }
         }
     }
-
 
     replaced_string
 }

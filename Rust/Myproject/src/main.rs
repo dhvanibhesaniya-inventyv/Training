@@ -1,9 +1,12 @@
+
+//!  MyProject contain 5 modules.
+
 // use crate::employee::employee_main;
 // use crate::student::student_main;
-// use crate::table_task::main as table_main;
+use crate::table_task::main as table_main;
 // use crate::two_string::gussing_game::gussing_main;
 // use crate::two_string::single_string::main as single_main;
-use crate::two_string::to_string::two_string_main;
+// use crate::two_string::to_string::two_string_main;
 
 /// The `common_struct` module contains common data structures used in the crate.
 pub mod common_struct;
@@ -29,7 +32,7 @@ fn main() {
     // student_main();
     // employee_main();
     // gussing_main(); // two_string::gussing_game::gussing_main();
-    two_string_main(); // two_string::to_string::two_string_main();
+    // two_string_main(); // two_string::to_string::two_string_main();
     // single_main();
-    // table_main();
+     table_main();
 }

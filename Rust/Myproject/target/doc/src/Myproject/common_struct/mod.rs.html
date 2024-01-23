@@ -170,7 +170,21 @@
 <a href="#170" id="170">170</a>
 <a href="#171" id="171">171</a>
 <a href="#172" id="172">172</a>
-</pre></div><pre class="rust"><code><span class="kw">use </span>serde::{Deserialize, Serialize};
+<a href="#173" id="173">173</a>
+<a href="#174" id="174">174</a>
+<a href="#175" id="175">175</a>
+<a href="#176" id="176">176</a>
+<a href="#177" id="177">177</a>
+<a href="#178" id="178">178</a>
+<a href="#179" id="179">179</a>
+<a href="#180" id="180">180</a>
+<a href="#181" id="181">181</a>
+<a href="#182" id="182">182</a>
+</pre></div><pre class="rust"><code>
+
+<span class="comment">// student structure
+
+</span><span class="kw">use </span>serde::{Deserialize, Serialize};
 
 <span class="doccomment">/// Represents a student with details such as name, phone, email, etc.
 </span><span class="attr">#[derive(Debug, Deserialize, Serialize)]
@@ -185,7 +199,10 @@
     <span class="kw">pub </span>grade: <span class="prelude-ty">Option</span>&lt;String&gt;,
 }
 
-<span class="doccomment">/// Represents an employee with details like name, age, skills, position, and experience.
+
+<span class="comment">// employee structure and enum
+
+</span><span class="doccomment">/// Represents an employee with details like name, age, skills, position, and experience.
 </span><span class="attr">#[derive(Debug, Deserialize, Serialize)]
 </span><span class="kw">pub struct </span>Employee {
     <span class="kw">pub </span>name: String,
@@ -221,9 +238,12 @@
     </span>ProjectManager,
 }
 
-<span class="doccomment">/// Represents a cell in a table with height, width, and a value.
+
+<span class="comment">// table structure and its function
+
 </span><span class="kw">use </span>std::io;
-<span class="attr">#[derive(Debug)]
+<span class="doccomment">/// Represents a cell in a table with height, width, and a value.
+</span><span class="attr">#[derive(Debug)]
 </span><span class="kw">pub struct </span>Cell {
     <span class="kw">pub </span>height: u32,
     <span class="kw">pub </span>width: u32,

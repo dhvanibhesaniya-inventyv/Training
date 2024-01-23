@@ -6,7 +6,7 @@ use crate::common_struct::Student;
 
 /// Calculate percentage and grade for a student based on their marks.
 
-fn calculate_percentage_and_grade(student: &mut Student) {
+pub fn calculate_percentage_and_grade(student: &mut Student) {
     let total_marks: u32 = student.marks.iter().sum();
     let percentage = total_marks as f64 / student.marks.len() as f64;
     let grade = match percentage {

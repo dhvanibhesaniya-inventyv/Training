@@ -118,6 +118,7 @@ where
 
 fn main(){
 
+// // static data -----------------------------------------------------------------------------------------
 
     let cell1 = Cell::data_assign(1,2,1);
     let cell2 = Cell::data_assign(2,2,2);
@@ -142,7 +143,49 @@ fn main(){
 
     println!("{:#?}", table);
 
-    // user input
+    //  // static data ------------------------------------------------------------------------------------
+
+    
+// // user input as value -----------------------------------------------------------------------------------------------------
+
+// println!("Enter the number of rows:");
+// let num_rows: usize = read_user_input();
+
+// let mut rows = Vec::with_capacity(num_rows);
+
+// for _ in 0..num_rows {
+//     println!("Enter the number of cells in the row:");
+//     let num_cells: usize = read_user_input();
+
+//     let mut cells = Vec::with_capacity(num_cells);
+
+//     for _ in 0..num_cells {
+//         println!("Enter the cell height:");
+//         let cell_height: u32 = read_user_input();
+
+//         println!("Enter the cell width:");
+//         let cell_width: u32 = read_user_input();
+
+//         println!("Enter the cell value:");
+//         let cell_value: u32 = read_user_input();
+
+//         cells.push(Cell::data_assign(cell_height, cell_width, cell_value));
+//     }
+
+//     let row = Row::row_data(cells);
+//     rows.push(row);
+// }
+
+// let mut table = Table::table_data(rows);
+// println!("{:#?}", table);
+
+
+// // user input as value -----------------------------------------------------------------------------------------------------
+
+
+
+
+    // user input for updation --------------------------------------------------------------------------------------------
 
 //     println!("do you want to update any values ?  if yes then enter  'y'  or  'n' .");
 //     let yn: String = read_user_input(); 

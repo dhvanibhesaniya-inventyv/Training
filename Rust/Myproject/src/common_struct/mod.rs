@@ -59,8 +59,8 @@ pub enum Position {
 
 // table structure and its function
 
-/// Represents a cell in a table with height, width, and a value.
 use std::io;
+/// Represents a cell in a table with height, width, and a value.
 #[derive(Debug)]
 pub struct Cell {
     pub height: u32,

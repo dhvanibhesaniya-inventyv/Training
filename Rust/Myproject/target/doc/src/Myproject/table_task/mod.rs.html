@@ -69,35 +69,113 @@
 <a href="#69" id="69">69</a>
 <a href="#70" id="70">70</a>
 <a href="#71" id="71">71</a>
+<a href="#72" id="72">72</a>
+<a href="#73" id="73">73</a>
+<a href="#74" id="74">74</a>
+<a href="#75" id="75">75</a>
+<a href="#76" id="76">76</a>
+<a href="#77" id="77">77</a>
+<a href="#78" id="78">78</a>
+<a href="#79" id="79">79</a>
+<a href="#80" id="80">80</a>
+<a href="#81" id="81">81</a>
+<a href="#82" id="82">82</a>
+<a href="#83" id="83">83</a>
+<a href="#84" id="84">84</a>
+<a href="#85" id="85">85</a>
+<a href="#86" id="86">86</a>
+<a href="#87" id="87">87</a>
+<a href="#88" id="88">88</a>
+<a href="#89" id="89">89</a>
+<a href="#90" id="90">90</a>
+<a href="#91" id="91">91</a>
+<a href="#92" id="92">92</a>
+<a href="#93" id="93">93</a>
+<a href="#94" id="94">94</a>
+<a href="#95" id="95">95</a>
+<a href="#96" id="96">96</a>
+<a href="#97" id="97">97</a>
+<a href="#98" id="98">98</a>
+<a href="#99" id="99">99</a>
+<a href="#100" id="100">100</a>
+<a href="#101" id="101">101</a>
+<a href="#102" id="102">102</a>
+<a href="#103" id="103">103</a>
+<a href="#104" id="104">104</a>
+<a href="#105" id="105">105</a>
+<a href="#106" id="106">106</a>
+<a href="#107" id="107">107</a>
+<a href="#108" id="108">108</a>
+<a href="#109" id="109">109</a>
+<a href="#110" id="110">110</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::common_struct::{Cell, Row, Table, read_user_input};
 
 <span class="doccomment">/// Main function demonstrating the use of common data structures for creating and updating a table.
 </span><span class="kw">pub fn </span>main() {
-    <span class="comment">// Creating cells and rows
-    </span><span class="kw">let </span>cell1 = Cell::data_assign(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>);
-    <span class="kw">let </span>cell2 = Cell::data_assign(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>);
-    <span class="kw">let </span>row1 = Row::row_data(<span class="macro">vec!</span>[cell1, cell2]);
+    <span class="comment">// // Creating cells and rows
+    // let cell1 = Cell::data_assign(1, 2, 1);
+    // let cell2 = Cell::data_assign(2, 2, 2);
+    // let row1 = Row::row_data(vec![cell1, cell2]);
 
-    <span class="kw">let </span>cell3 = Cell::data_assign(<span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>);
-    <span class="kw">let </span>cell4 = Cell::data_assign(<span class="number">4</span>, <span class="number">2</span>, <span class="number">4</span>);
-    <span class="kw">let </span>row2 = Row::row_data(<span class="macro">vec!</span>[cell3, cell4]);
+    // let cell3 = Cell::data_assign(3, 2, 3);
+    // let cell4 = Cell::data_assign(4, 2, 4);
+    // let row2 = Row::row_data(vec![cell3, cell4]);
 
-    <span class="comment">// Creating a table with rows
-    </span><span class="kw">let </span><span class="kw-2">mut </span>table = Table::table_data(<span class="macro">vec!</span>[row1, row2]);
+    // // Creating a table with rows
+    // let mut table = Table::table_data(vec![row1, row2]);
 
-    <span class="macro">println!</span>(<span class="string">&quot;\n\n&quot;</span>);
+    // println!(&quot;\n\n&quot;);
 
-    <span class="comment">// Modifying a cell in the table
-    </span>table.rows[<span class="number">1</span>].cells[<span class="number">1</span>] = Cell::data_assign(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>);
+    // // Modifying a cell in the table
+    // table.rows[1].cells[1] = Cell::data_assign(10, 10, 10);
 
-    <span class="comment">// Updating row data and table data
-    </span>table.rows[<span class="number">1</span>].update_row_data();
-    table.update_table_data();
+    // // Updating row data and table data
+    // table.rows[1].update_row_data();
+    // table.update_table_data();
 
-    <span class="comment">// Printing the table
-    </span><span class="macro">println!</span>(<span class="string">&quot;{:#?}&quot;</span>, table);
+    // // Printing the table
+    // println!(&quot;{:#?}&quot;, table);
 
-    <span class="comment">// User input
+
+        
+// user input as value -----------------------------------------------------------------------------------------------------
+
+</span><span class="macro">println!</span>(<span class="string">&quot;Enter the number of rows:&quot;</span>);
+<span class="kw">let </span>num_rows: usize = read_user_input();
+
+<span class="kw">let </span><span class="kw-2">mut </span>rows = Vec::with_capacity(num_rows);
+
+<span class="kw">for _ in </span><span class="number">0</span>..num_rows {
+    <span class="macro">println!</span>(<span class="string">&quot;Enter the number of cells in the row:&quot;</span>);
+    <span class="kw">let </span>num_cells: usize = read_user_input();
+
+    <span class="kw">let </span><span class="kw-2">mut </span>cells = Vec::with_capacity(num_cells);
+
+    <span class="kw">for _ in </span><span class="number">0</span>..num_cells {
+        <span class="macro">println!</span>(<span class="string">&quot;Enter the cell height:&quot;</span>);
+        <span class="kw">let </span>cell_height: u32 = read_user_input();
+
+        <span class="macro">println!</span>(<span class="string">&quot;Enter the cell width:&quot;</span>);
+        <span class="kw">let </span>cell_width: u32 = read_user_input();
+
+        <span class="macro">println!</span>(<span class="string">&quot;Enter the cell value:&quot;</span>);
+        <span class="kw">let </span>cell_value: u32 = read_user_input();
+
+        cells.push(Cell::data_assign(cell_height, cell_width, cell_value));
+    }
+
+    <span class="kw">let </span>row = Row::row_data(cells);
+    rows.push(row);
+}
+
+<span class="kw">let </span><span class="kw-2">mut </span>table = Table::table_data(rows);
+<span class="macro">println!</span>(<span class="string">&quot;{:#?}&quot;</span>, table);
+
+
+<span class="comment">// user input as value -----------------------------------------------------------------------------------------------------
+
+
+    // User input
     </span><span class="macro">println!</span>(<span class="string">&quot;Do you want to update any values? If yes, enter &#39;y&#39; or &#39;n&#39;.&quot;</span>);
     <span class="kw">let </span>yn: String = read_user_input();
 

@@ -121,9 +121,33 @@
 <a href="#121" id="121">121</a>
 <a href="#122" id="122">122</a>
 <a href="#123" id="123">123</a>
+<a href="#124" id="124">124</a>
+<a href="#125" id="125">125</a>
+<a href="#126" id="126">126</a>
+<a href="#127" id="127">127</a>
+<a href="#128" id="128">128</a>
+<a href="#129" id="129">129</a>
+<a href="#130" id="130">130</a>
+<a href="#131" id="131">131</a>
+<a href="#132" id="132">132</a>
+<a href="#133" id="133">133</a>
+<a href="#134" id="134">134</a>
+<a href="#135" id="135">135</a>
+<a href="#136" id="136">136</a>
+<a href="#137" id="137">137</a>
+<a href="#138" id="138">138</a>
+<a href="#139" id="139">139</a>
+<a href="#140" id="140">140</a>
+<a href="#141" id="141">141</a>
+<a href="#142" id="142">142</a>
+<a href="#143" id="143">143</a>
+<a href="#144" id="144">144</a>
+<a href="#145" id="145">145</a>
+<a href="#146" id="146">146</a>
+<a href="#147" id="147">147</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::two_string::single_string::main <span class="kw">as </span>single_string;
-<span class="kw">use </span>std::io;
-<span class="doccomment">/// Main function for demonstrating operations on two strings.
+<span class="comment">// use std::io;
+</span><span class="doccomment">/// Main function for demonstrating operations on two strings.
 </span><span class="kw">pub fn </span>two_string_main() {
     <span class="doccomment">/// Function to calculate character frequency in a string.
     ///
@@ -209,9 +233,32 @@
 
     </span><span class="kw">let </span>new_single_string = single_string();
 
-    <span class="kw">let </span>new_replaced_single_string = replace_underscore(new_single_string, <span class="kw-2">&amp;mut </span>vector3);
+    <span class="comment">// this
 
-    <span class="macro">println!</span>(<span class="string">&quot;{:?}&quot;</span>, new_replaced_single_string);
+    </span><span class="kw">let </span>new_replaced_single_string = replace_underscore(new_single_string, <span class="kw-2">&amp;mut </span>vector3);
+
+    <span class="comment">// or this
+
+    // for i in new_replaced_single_string.chars() {
+    //         if i == &#39;_&#39; {
+    //             if let Some((ch, count)) = vector3.first_mut() {
+    //                 print!(&quot;{}&quot;, *ch);
+    //   
+    //                 if *count &gt; 0 {
+    //                     *count -= 1;
+    //                 }
+    //                 if *count == 0 {
+    //                     vector3.remove(0);
+    //                 }
+    //             } else {
+    //                 print!(&quot;_&quot;);
+    //             }
+    //         }else{
+    //             print!(&quot;{}&quot;, i);
+    //         }
+    //     }
+
+    </span><span class="macro">println!</span>(<span class="string">&quot;{:?}&quot;</span>, new_replaced_single_string);
 
     <span class="macro">println!</span>(
         <span class="string">&quot;Vector 3 (Character and frequency at corresponding positions): {:?}&quot;</span>,
@@ -221,7 +268,7 @@
 
 <span class="doccomment">/// this function replace the underscore with the vector 3 values and changing its frequency.
 
-</span><span class="kw">fn </span>replace_underscore(<span class="kw-2">mut </span>replaced_string: String, vector3: <span class="kw-2">&amp;mut </span>Vec&lt;(char, usize)&gt;) -&gt; String {
+</span><span class="kw">pub fn </span>replace_underscore(<span class="kw-2">mut </span>replaced_string: String, vector3: <span class="kw-2">&amp;mut </span>Vec&lt;(char, usize)&gt;) -&gt; String {
     <span class="kw">let </span><span class="kw-2">mut </span>vector_index = <span class="number">0</span>;
 
     <span class="kw">for </span>(i, ch) <span class="kw">in </span>replaced_string.to_string().chars().enumerate() {
@@ -243,5 +290,6 @@
     }
 
     replaced_string
+
 }
 </code></pre></div></section></main></body></html>

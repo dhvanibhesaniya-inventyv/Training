@@ -6,8 +6,6 @@
 
 # //cargo new --lib moduless     // to create a library file
 
-<<<<<<< HEAD
 # //cargo new  moduless  --bin // to create a binary file
-=======
+
 # //cargo new  moduless  --bin // to create a binary file
->>>>>>> 70446efd97b610bf73237d8e291edbeedf515e55

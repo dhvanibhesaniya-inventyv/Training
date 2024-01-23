@@ -1,3 +1,7 @@
+
+
+// student structure
+
 use serde::{Deserialize, Serialize};
 
 /// Represents a student with details such as name, phone, email, etc.
@@ -12,6 +16,9 @@ pub struct Student {
     pub percentage: Option<f64>,
     pub grade: Option<String>,
 }
+
+
+// employee structure and enum
 
 /// Represents an employee with details like name, age, skills, position, and experience.
 #[derive(Debug, Deserialize, Serialize)]
@@ -48,6 +55,9 @@ pub enum Position {
     #[serde(rename = "Project Manager")]
     ProjectManager,
 }
+
+
+// table structure and its function
 
 /// Represents a cell in a table with height, width, and a value.
 use std::io;

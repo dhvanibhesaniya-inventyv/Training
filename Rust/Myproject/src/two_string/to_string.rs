@@ -86,7 +86,30 @@ pub fn two_string_main() {
 
     let new_single_string = single_string();
 
+    // this
+
     let new_replaced_single_string = replace_underscore(new_single_string, &mut vector3);
+
+    // or this
+
+    // for i in new_replaced_single_string.chars() {
+    //         if i == '_' {
+    //             if let Some((ch, count)) = vector3.first_mut() {
+    //                 print!("{}", *ch);
+        
+    //                 if *count > 0 {
+    //                     *count -= 1;
+    //                 }
+    //                 if *count == 0 {
+    //                     vector3.remove(0);
+    //                 }
+    //             } else {
+    //                 print!("_");
+    //             }
+    //         }else{
+    //             print!("{}", i);
+    //         }
+    //     }
 
     println!("{:?}", new_replaced_single_string);
 
@@ -122,24 +145,3 @@ fn replace_underscore(mut replaced_string: String, vector3: &mut Vec<(char, usiz
     replaced_string
 
 }
-
-// fn replace_underscore(mut replaced_string: String, vector3: &mut Vec<(char, usize)>)  {
-// for i in replaced_string.chars() {
-//     if i == '_' {
-//         if let Some((ch, count)) = vector3.first_mut() {
-//             print!("{}", *ch);
-
-//             if *count > 0 {
-//                 *count -= 1;
-//             }
-//             if *count == 0 {
-//                 vector3.remove(0);
-//             }
-//         } else {
-//             print!("_");
-//         }
-//     }else{
-//         print!("{}", i);
-//     }
-// }
-// }

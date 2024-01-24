@@ -1,5 +1,5 @@
 var srcIndex = JSON.parse('{\
-"Myproject":["",[["area",[],["mod.rs"]],["common_struct",[],["mod.rs"]],["employee",[],["mod.rs"]],["student",[],["mod.rs"]],["table_task",[],["mod.rs"]],["two_string",[],["gussing_game.rs","mod.rs","single_string.rs","to_string.rs"]]],["main.rs"]],\
+"Myproject":["",[["area",[],["mod.rs"]],["common_struct",[],["mod.rs"]],["employee",[],["mod.rs"]],["employee_hashmap",[],["mod.rs"]],["student",[],["mod.rs"]],["student_hashmap",[],["mod.rs"]],["table_task",[],["mod.rs"]],["two_string",[],["gussing_game.rs","mod.rs","single_string.rs","to_string.rs"]]],["main.rs"]],\
 "cfg_if":["",[],["lib.rs"]],\
 "getrandom":["",[],["error.rs","error_impls.rs","lib.rs","util.rs","windows.rs"]],\
 "itoa":["",[],["lib.rs","udiv128.rs"]],\

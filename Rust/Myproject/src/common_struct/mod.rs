@@ -180,3 +180,37 @@ where
     io::stdin().read_line(&mut input).expect("Failed to read line");
     input.trim().parse().expect("Failed to parse input")
 }
+
+
+
+/// Area structure  contain length and breath.
+ 
+pub struct Area {
+   pub length: f32,
+   pub breath: f32,
+}
+
+ impl Area {
+
+    ///   area_rectangle calculate area of rectangle
+    pub fn area_rectangle(&self) {
+        println!("Area of rectangle is : {}", self.length * self.breath);
+    }
+/// area_square calculate area of square
+   pub  fn area_square(&self) {
+        let side = if self.length >= self.breath {
+            self.breath
+        } else {
+            self.length
+        };
+
+        println!("Area of square is : {}", side * side);
+    }
+
+    /// area_circle calculate area of circle.
+    pub fn area_circle(&self) {
+        let radius = self.length.min(self.breath) / 2.0;
+
+        println!("Area of circle is : {}", 3.14 * radius * radius);
+    }
+}

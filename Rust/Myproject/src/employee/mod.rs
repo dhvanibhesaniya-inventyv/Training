@@ -8,7 +8,7 @@
 use serde_json;
 use std::fs;
 
-use crate::common_struct::{Employee,Skill,Position};
+use super::common_struct::{Employee,Skill,Position};
 
 
 // #[warn(unused_must_use)]

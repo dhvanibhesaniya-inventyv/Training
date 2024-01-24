@@ -1,0 +1,22 @@
+[
+  {
+    "skills": [
+      "Java",
+      "Java"
+    ],
+    "name": "Neha",
+    "age": 27,
+    "position": null,
+    "experiance": null
+  },
+  {
+    "age": 27,
+    "position": null,
+    "experiance": null,
+    "skills": [
+      "Java",
+      "Rust"
+    ],
+    "name": "Pari"
+  }
+]

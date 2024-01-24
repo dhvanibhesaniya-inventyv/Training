@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Position","Skill"],"fn":["read_user_input"],"struct":["Cell","Employee","Row","Student","Table"]};
+window.SIDEBAR_ITEMS = {"enum":["Position","Skill"],"fn":["read_user_input"],"struct":["Area","Cell","Employee","Row","Student","Table"]};

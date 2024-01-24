@@ -37,7 +37,7 @@ pub mod student_hashmap;
 /// The main entry point for the application.
 ///
 /// It calls functions from various modules to demonstrate functionality.
-fn main() {
+pub fn main() {
     // Uncomment the functions you want to include in the documentation.
 
     // student_main();

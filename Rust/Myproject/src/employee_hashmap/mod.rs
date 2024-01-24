@@ -4,7 +4,6 @@
 //  2. junior emp and working on rust
 //  3. senior emp or c#
 
-use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, fs};
 use serde_json::{self, json, Value};
 use super::common_struct::{Employee,Skill,Position};

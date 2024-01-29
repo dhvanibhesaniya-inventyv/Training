@@ -29,8 +29,10 @@ pub mod two_string;
 ///  The `area` module contains values and function calling. 
 pub mod area;
 
-
+/// The `employee` module contains functionality related to employees.
 pub mod employee_hashmap;
+
+/// The `student` module contains functionality related to students.
 pub mod student_hashmap;
 
 

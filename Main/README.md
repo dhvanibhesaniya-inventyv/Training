@@ -1,5 +1,5 @@
 # Question :
-## Develope a program that reads a number which is 4 digit long, then get combinations and find prime numbers from it , then geththe highest prime number and make a pascle triangle using that number, get output in html and show  display the prime numbers in pascle traangle with underline.
+## Develope a program that reads a number which is 4 digit long, then get combinations and find prime numbers from it , then get the highest prime number and make a pascle triangle using that number, get output in html and show  display the prime numbers in pascle traangle with underline.
 
 #
 
@@ -174,6 +174,10 @@ function isSingleDigitPrime(num) {
   return num < 10 && isPrime(num);
 }
 ```
+#
+
+# Output :
+![Pascal triangle](https://github.com/DhvaniBhesaniya09/Training/assets/153286337/b27f630d-6112-4c83-a336-3a39021ca36d)
 #
 
 # Author :

@@ -1,0 +1,536 @@
+{
+  "header": {
+    "data_type": "HeaderData",
+    "r_height": 79,
+    "r_width": 772.0,
+    "cells": [
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Descr\niptio\nn(Typ\ne)"
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Date \nIn Sv\nc"
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Cost/\n Basis"
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Prior\n 179 \nBonus"
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Bus. \nUse P\ner."
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Meth\nod"
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Cv"
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Life"
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Crnt.\n 179"
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Crnt.\n Bonu\ns"
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Prior\n Reg. \nDepr."
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Crnt.\n Depr\n. Ded\nuc."
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Next \nYear \nDepr."
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Prior\n AMT"
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Crnt.\n AMT"
+      },
+      {
+        "height": 79,
+        "width": 48.25,
+        "value": "Crnt.\n Amo.\n Dep."
+      }
+    ],
+    "total_cells": 16
+  },
+  "rows": [
+    {
+      "data_type": "RowData",
+      "r_height": 107,
+      "r_width": 772.0,
+      "cells": [
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "Asset1 - \nHouse I\nn NY(Ind\nian Rese\nrvation \n5 year no\nn farm p\nroperty)"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "01/01/20\n24"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "250,000"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "100 MA\nCRS 150"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "HY"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "3"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        }
+      ],
+      "total_cells": 16
+    },
+    {
+      "data_type": "RowData",
+      "r_height": 107,
+      "r_width": 772.0,
+      "cells": [
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "Asset2 - \nHouse I\nn CA(Ind\nian Rese\nrvation \n10 year f\narm prop\nerty)"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "01/01/20\n22"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "150000"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "100 MA\nCRS 150"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "CA"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "3"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 107,
+          "width": 48.25,
+          "value": "0"
+        }
+      ],
+      "total_cells": 16
+    },
+    {
+      "data_type": "RowData",
+      "r_height": 55,
+      "r_width": 772.0,
+      "cells": [
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "Asset3 - \nCar -Fo\nrd(Car P\nroperty)"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "01/01/20\n19"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "1000000"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "100 MA\nCRS 150"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "ford"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "3"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        }
+      ],
+      "total_cells": 16
+    },
+    {
+      "data_type": "RowData",
+      "r_height": 55,
+      "r_width": 772.0,
+      "cells": [
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "Asset3 - \nCar -Au\ndi(Car P\nroperty)"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "01/01/20\n17"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "150000"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "100 MA\nCRS 150"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "ford"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "3"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 55,
+          "width": 48.25,
+          "value": "0"
+        }
+      ],
+      "total_cells": 16
+    },
+    {
+      "data_type": "RowData",
+      "r_height": 68,
+      "r_width": 772.0,
+      "cells": [
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "Asset3 - \nCar -B\nMW(Car \nProperty\n)"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "01/01/20\n15"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "150000"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "100 MA\nCRS 150"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "ford"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "3"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "0"
+        },
+        {
+          "height": 68,
+          "width": 48.25,
+          "value": "0"
+        }
+      ],
+      "total_cells": 16
+    }
+  ],
+  "t_height": 392,
+  "t_width": 772.0,
+  "t_row": 5,
+  "t_cell": 80
+}

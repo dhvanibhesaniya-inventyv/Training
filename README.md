@@ -15,7 +15,7 @@ This repository encompasses the work completed during an industrial internship. 
     - Script code addressing various questions specified within the .js file.
 
 ### 3. Main:
-
+###### -  ( Must see the content )
 - Comprises HTML, CSS, and JavaScript files that showcase:
     - Display of a Pascal tree through JavaScript
     - Presentation of prime numbers
@@ -28,3 +28,5 @@ This repository encompasses the work completed during an industrial internship. 
 Please explore individual folders for detailed information and specific implementations.
 
 Feel free to review, suggest changes, or contribute to this repository. Your feedback is highly appreciated!
+
+######  - - - - - - - - - - - -  "Code with passion!" - - - - - - - - - - -

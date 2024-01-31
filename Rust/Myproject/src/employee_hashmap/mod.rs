@@ -4,24 +4,23 @@
 //  2. junior emp and working on rust
 //  3. senior emp or c#
 
-use std::{collections::HashMap, fs};
+use super::common_struct::{Employee, Position, Skill};
 use serde_json::{self, json, Value};
-use super::common_struct::{Employee,Skill,Position};
-
+use std::{collections::HashMap, fs};
 
 // #[warn(unused_must_use)]
 
 /// Main function for categorizing employees into HasHmap data which write in different JSON files based on their position and skills.
 
 pub fn employee_hashmap_main() {
-    let file_content =
-        fs::read_to_string("json_data/employee_hashmap_json/Employee.json").expect("Unable to read JSON file");
+    let file_content = fs::read_to_string("json_data/employee_hashmap_json/Employee.json")
+        .expect("Unable to read JSON file");
 
     // Deserialize
     let employees: Vec<Employee> =
         serde_json::from_str(&file_content).expect("Failed to parse JSON");
 
-            // Create vectors ઓફ hashmap to store categorized employees
+    // Create vectors ઓફ hashmap to store categorized employees
 
     let mut soft_dev_employees: Vec<HashMap<String, Value>> = Vec::new();
     let mut jr_employees: Vec<HashMap<String, Value>> = Vec::new();
@@ -31,7 +30,6 @@ pub fn employee_hashmap_main() {
     for employee in &employees {
         let mut employee_map: HashMap<String, Value> = HashMap::new();
 
-        
         // Insert employee details into the HashMap
 
         employee_map.insert("name".to_string(), json!(employee.name));
@@ -54,19 +52,18 @@ pub fn employee_hashmap_main() {
                 _ => {
                     if employee.skills.contains(&Skill::CSharp) {
                         sr_or_c_employees.push(employee_map);
-                    } 
+                    }
+                }
             }
-        }
-        }
-        else if employee.skills.contains(&Skill::CSharp) {
+        } else if employee.skills.contains(&Skill::CSharp) {
             sr_or_c_employees.push(employee_map);
         } else {
             other_employees.push(employee_map);
         }
     }
-    
+
     // Write categorized employees to separate JSON files
-    
+
     fs::write(
         "json_data/employee_hashmap_json/soft_dev_employee.json",
         serde_json::to_string_pretty(&soft_dev_employees).expect("Failed to serialize JSON"),

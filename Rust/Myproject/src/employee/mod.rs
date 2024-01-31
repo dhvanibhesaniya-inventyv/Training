@@ -1,4 +1,4 @@
-// Question_4 different json files with specified content 
+// Question_4 different json files with specified content
 
 //  1.  mid-level(software developer) and working on rust
 //  2. junior emp and working on rust
@@ -8,16 +8,15 @@
 use serde_json;
 use std::fs;
 
-use super::common_struct::{Employee,Skill,Position};
-
+use super::common_struct::{Employee, Position, Skill};
 
 // #[warn(unused_must_use)]
 
 /// Main function for categorizing employees into different JSON files based on their position and skills.
 
 pub fn employee_main() {
-    let file_content =
-        fs::read_to_string("json_data/employee_json/Employee.json").expect("unable to read json file");
+    let file_content = fs::read_to_string("json_data/employee_json/Employee.json")
+        .expect("unable to read json file");
 
     // Deserialize
     let emp: Vec<Employee> =
@@ -29,7 +28,6 @@ pub fn employee_main() {
     let mut other_employees: Vec<&Employee> = Vec::new();
 
     for employee in &emp {
-
         if let Some(position) = &employee.position {
             match position {
                 Position::SoftwareDeveloper if employee.skills.contains(&Skill::Rust) => {
@@ -44,26 +42,24 @@ pub fn employee_main() {
                 _ => {
                     if employee.skills.contains(&Skill::CSharp) {
                         sr_or_c_employees.push(employee);
-                    } 
+                    }
+                }
             }
-        }
-        }
-        else if employee.skills.contains(&Skill::CSharp) {
+        } else if employee.skills.contains(&Skill::CSharp) {
             sr_or_c_employees.push(employee);
         } else {
             other_employees.push(employee);
         }
     }
 
-        // Convert categorized employees to JSON and write to separate files
+    // Convert categorized employees to JSON and write to separate files
 
     let sdev =
         serde_json::to_string_pretty(&soft_dev_employees).expect("unable to convert to json");
     fs::write("json_data/employee_json/soft_dev_employee.json", sdev)
         .expect("unable to create to json");
 
-    let jrdev =
-        serde_json::to_string_pretty(&jr_employees).expect("unable to convert to json ");
+    let jrdev = serde_json::to_string_pretty(&jr_employees).expect("unable to convert to json ");
     fs::write("json_data/employee_json/jr_dev_employee.json", jrdev)
         .expect("unable to create to json");
 

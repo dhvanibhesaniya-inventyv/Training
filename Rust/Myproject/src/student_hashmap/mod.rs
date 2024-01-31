@@ -1,7 +1,5 @@
-
-use std::{collections::HashMap, fs};
 use serde_json::{self, json, Value};
-
+use std::{collections::HashMap, fs};
 
 use crate::common_struct::Student;
 
@@ -26,8 +24,8 @@ fn calculate_percentage_and_grade(student: &mut Student) {
 /// Main function for processing students and updating JSON data using HashMap.
 
 pub fn student_hashmap_main() {
-
-    let content = fs::read_to_string("json_data/student_hashmap_json/StudentData.json").expect("Failed to read file");
+    let content = fs::read_to_string("json_data/student_hashmap_json/StudentData.json")
+        .expect("Failed to read file");
 
     //Deserialize
     let mut students: Vec<Student> = serde_json::from_str(&content).expect("Failed to parse JSON");
@@ -39,8 +37,8 @@ pub fn student_hashmap_main() {
 
     let mut student_vec: Vec<HashMap<&str, Value>> = Vec::new();
 
-     // Convert each student to a HashMap and add it to the vector
-    for student in students{
+    // Convert each student to a HashMap and add it to the vector
+    for student in students {
         let mut student_hashmap: HashMap<&str, Value> = HashMap::new();
         student_hashmap.insert("name:", Value::String(student.name.to_string()));
         student_hashmap.insert("phone:", Value::String(student.phone.to_string()));
@@ -54,15 +52,12 @@ pub fn student_hashmap_main() {
     }
 
     // Serialize the updated student data to a JSON string
-    let updated_json = serde_json::to_string_pretty(&student_vec).expect("Failed to serialize JSON");
+    let updated_json =
+        serde_json::to_string_pretty(&student_vec).expect("Failed to serialize JSON");
 
-    fs::write("json_data/student_hashmap_json/StudentData_updated.json",updated_json).expect("Failed to write file");
+    fs::write(
+        "json_data/student_hashmap_json/StudentData_updated.json",
+        updated_json,
+    )
+    .expect("Failed to write file");
 }
-
-
-
-
-
-
-
-

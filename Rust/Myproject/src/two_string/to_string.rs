@@ -96,7 +96,7 @@ pub fn two_string_main() {
     //         if i == '_' {
     //             if let Some((ch, count)) = vector3.first_mut() {
     //                 print!("{}", *ch);
-    //   
+    //
     //                 if *count > 0 {
     //                     *count -= 1;
     //                 }
@@ -143,5 +143,4 @@ pub fn replace_underscore(mut replaced_string: String, vector3: &mut Vec<(char, 
     }
 
     replaced_string
-
 }

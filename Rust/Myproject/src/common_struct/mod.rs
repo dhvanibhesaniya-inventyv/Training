@@ -1,5 +1,4 @@
-
-
+pub mod table_hashmap_struct_enum;
 // student structure
 
 use serde::{Deserialize, Serialize};
@@ -16,7 +15,6 @@ pub struct Student {
     pub percentage: Option<f64>,
     pub grade: Option<String>,
 }
-
 
 // employee structure and enum
 
@@ -56,7 +54,6 @@ pub enum Position {
     ProjectManager,
 }
 
-
 // table structure and its function
 
 use std::io;
@@ -71,7 +68,11 @@ pub struct Cell {
 impl Cell {
     /// Create a new cell with the given height, width, and value.
     pub fn data_assign(height: u32, width: u32, value: u32) -> Cell {
-        Cell { height, width, value }
+        Cell {
+            height,
+            width,
+            value,
+        }
     }
 }
 
@@ -130,7 +131,6 @@ pub struct Table {
     pub t_cell: u32,
 }
 
-
 impl Table {
     /// Creates a new `Table` instance with specified rows.
     pub fn table_data(rows: Vec<Row>) -> Table {
@@ -177,27 +177,26 @@ where
     T::Err: std::fmt::Debug,
 {
     let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("Failed to read line");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read line");
     input.trim().parse().expect("Failed to parse input")
 }
 
-
-
 /// Area structure  contain length and breath.
- 
+
 pub struct Area {
-   pub length: f32,
-   pub breath: f32,
+    pub length: f32,
+    pub breath: f32,
 }
 
- impl Area {
-
+impl Area {
     ///   area_rectangle calculate area of rectangle
     pub fn area_rectangle(&self) {
         println!("Area of rectangle is : {}", self.length * self.breath);
     }
-/// area_square calculate area of square
-   pub  fn area_square(&self) {
+    /// area_square calculate area of square
+    pub fn area_square(&self) {
         let side = if self.length >= self.breath {
             self.breath
         } else {

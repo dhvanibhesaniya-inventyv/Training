@@ -25,10 +25,9 @@ pub fn calculate_percentage_and_grade(student: &mut Student) {
 /// Main function for processing student data, calculating percentage and grade, and updating JSON.
 
 pub fn student_main() {
-    
- // Read JSON file content
-    let content = fs::read_to_string("json_data/student_json/StudentData.json")
-        .expect("Failed to read file");
+    // Read JSON file content
+    let content =
+        fs::read_to_string("json_data/student_json/StudentData.json").expect("Failed to read file");
 
     //Deserialize
     let mut students: Vec<Student> = serde_json::from_str(&content).expect("Failed to parse JSON");
@@ -40,9 +39,6 @@ pub fn student_main() {
     // Serialize
     let updated_json = serde_json::to_string_pretty(&students).expect("Failed to serialize JSON");
 
-    fs::write(
-        "json_data/student_json/StudentData_new.json",
-        updated_json,
-    )
-    .expect("Failed to write file");
+    fs::write("json_data/student_json/StudentData_new.json", updated_json)
+        .expect("Failed to write file");
 }

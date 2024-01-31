@@ -1,4 +1,3 @@
-
 use crate::common_struct::Area;
 
 ///  This function is takes the value as length and breath.

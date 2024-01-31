@@ -1,7 +1,6 @@
-
 use std::{cmp::Ordering, io};
 //  The Rng trait defines methods that random number generators implement,
-// dependency  
+// dependency
 // rand = "0.8.5"
 use rand::Rng;
 
@@ -31,13 +30,12 @@ pub fn gussing_main() {
 
         //The trim method on a String instance will eliminate any whitespace at the beginning and end,
         // let guess: u32 = guess.trim().parse().expect("please type a number");
-       
-       
-       // Handling Invalid Input
+
+        // Handling Invalid Input
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
-            Err(_) => continue,  // The underscore, _, is a catchall value; in this example, we’re saying we want to match all Err values, no matter what information they have inside them. So the program will execute the second arm’s code,
-                                    //continue, which tells the program to go to the next iteration of the loop and ask for another guess. So, effectively, the program ignores all errors that parse might encounter!
+            Err(_) => continue, // The underscore, _, is a catchall value; in this example, we’re saying we want to match all Err values, no matter what information they have inside them. So the program will execute the second arm’s code,
+                                //continue, which tells the program to go to the next iteration of the loop and ask for another guess. So, effectively, the program ignores all errors that parse might encounter!
         };
 
         println!("your guessed is  {guess} ");

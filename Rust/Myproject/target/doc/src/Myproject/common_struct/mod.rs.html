@@ -213,9 +213,7 @@
 <a href="#213" id="213">213</a>
 <a href="#214" id="214">214</a>
 <a href="#215" id="215">215</a>
-<a href="#216" id="216">216</a>
-</pre></div><pre class="rust"><code>
-
+</pre></div><pre class="rust"><code><span class="kw">pub mod </span>table_hashmap_struct_enum;
 <span class="comment">// student structure
 
 </span><span class="kw">use </span>serde::{Deserialize, Serialize};
@@ -232,7 +230,6 @@
     <span class="kw">pub </span>percentage: <span class="prelude-ty">Option</span>&lt;f64&gt;,
     <span class="kw">pub </span>grade: <span class="prelude-ty">Option</span>&lt;String&gt;,
 }
-
 
 <span class="comment">// employee structure and enum
 
@@ -272,7 +269,6 @@
     </span>ProjectManager,
 }
 
-
 <span class="comment">// table structure and its function
 
 </span><span class="kw">use </span>std::io;
@@ -287,7 +283,11 @@
 <span class="kw">impl </span>Cell {
     <span class="doccomment">/// Create a new cell with the given height, width, and value.
     </span><span class="kw">pub fn </span>data_assign(height: u32, width: u32, value: u32) -&gt; Cell {
-        Cell { height, width, value }
+        Cell {
+            height,
+            width,
+            value,
+        }
     }
 }
 
@@ -346,7 +346,6 @@
     <span class="kw">pub </span>t_cell: u32,
 }
 
-
 <span class="kw">impl </span>Table {
     <span class="doccomment">/// Creates a new `Table` instance with specified rows.
     </span><span class="kw">pub fn </span>table_data(rows: Vec&lt;Row&gt;) -&gt; Table {
@@ -393,27 +392,26 @@
     T::Err: std::fmt::Debug,
 {
     <span class="kw">let </span><span class="kw-2">mut </span>input = String::new();
-    io::stdin().read_line(<span class="kw-2">&amp;mut </span>input).expect(<span class="string">&quot;Failed to read line&quot;</span>);
+    io::stdin()
+        .read_line(<span class="kw-2">&amp;mut </span>input)
+        .expect(<span class="string">&quot;Failed to read line&quot;</span>);
     input.trim().parse().expect(<span class="string">&quot;Failed to parse input&quot;</span>)
 }
 
-
-
 <span class="doccomment">/// Area structure  contain length and breath.
- 
+
 </span><span class="kw">pub struct </span>Area {
-   <span class="kw">pub </span>length: f32,
-   <span class="kw">pub </span>breath: f32,
+    <span class="kw">pub </span>length: f32,
+    <span class="kw">pub </span>breath: f32,
 }
 
- <span class="kw">impl </span>Area {
-
+<span class="kw">impl </span>Area {
     <span class="doccomment">///   area_rectangle calculate area of rectangle
     </span><span class="kw">pub fn </span>area_rectangle(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="macro">println!</span>(<span class="string">&quot;Area of rectangle is : {}&quot;</span>, <span class="self">self</span>.length * <span class="self">self</span>.breath);
     }
-<span class="doccomment">/// area_square calculate area of square
-   </span><span class="kw">pub  fn </span>area_square(<span class="kw-2">&amp;</span><span class="self">self</span>) {
+    <span class="doccomment">/// area_square calculate area of square
+    </span><span class="kw">pub fn </span>area_square(<span class="kw-2">&amp;</span><span class="self">self</span>) {
         <span class="kw">let </span>side = <span class="kw">if </span><span class="self">self</span>.length &gt;= <span class="self">self</span>.breath {
             <span class="self">self</span>.breath
         } <span class="kw">else </span>{
@@ -429,4 +427,5 @@
 
         <span class="macro">println!</span>(<span class="string">&quot;Area of circle is : {}&quot;</span>, <span class="number">3.14 </span>* radius * radius);
     }
-}</code></pre></div></section></main></body></html>
+}
+</code></pre></div></section></main></body></html>

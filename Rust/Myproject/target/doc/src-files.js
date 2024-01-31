@@ -1,8 +1,9 @@
 var srcIndex = JSON.parse('{\
-"Myproject":["",[["area",[],["mod.rs"]],["common_struct",[],["mod.rs"]],["employee",[],["mod.rs"]],["employee_hashmap",[],["mod.rs"]],["student",[],["mod.rs"]],["student_hashmap",[],["mod.rs"]],["table_task",[],["mod.rs"]],["two_string",[],["gussing_game.rs","mod.rs","single_string.rs","to_string.rs"]]],["main.rs"]],\
+"Myproject":["",[["area",[],["mod.rs"]],["common_struct",[],["mod.rs","table_hashmap_struct_enum.rs"]],["employee",[],["mod.rs"]],["employee_hashmap",[],["mod.rs"]],["student",[],["mod.rs"]],["student_hashmap",[],["mod.rs"]],["table_task",[],["mod.rs"]],["table_task_hashmap",[],["mod.rs","table_task_functions.rs"]],["two_string",[],["gussing_game.rs","mod.rs","single_string.rs","to_string.rs"]]],["main.rs"]],\
 "cfg_if":["",[],["lib.rs"]],\
 "getrandom":["",[],["error.rs","error_impls.rs","lib.rs","util.rs","windows.rs"]],\
 "itoa":["",[],["lib.rs","udiv128.rs"]],\
+"lazy_static":["",[],["inline_lazy.rs","lib.rs"]],\
 "ppv_lite86":["",[["x86_64",[],["mod.rs","sse2.rs"]]],["lib.rs","soft.rs","types.rs"]],\
 "proc_macro2":["",[],["detection.rs","extra.rs","fallback.rs","lib.rs","marker.rs","parse.rs","rcvec.rs","wrapper.rs"]],\
 "quote":["",[],["ext.rs","format.rs","ident_fragment.rs","lib.rs","runtime.rs","spanned.rs","to_tokens.rs"]],\

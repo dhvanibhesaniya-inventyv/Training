@@ -61,15 +61,8 @@
 <a href="#61" id="61">61</a>
 <a href="#62" id="62">62</a>
 <a href="#63" id="63">63</a>
-<a href="#64" id="64">64</a>
-<a href="#65" id="65">65</a>
-<a href="#66" id="66">66</a>
-<a href="#67" id="67">67</a>
-<a href="#68" id="68">68</a>
-</pre></div><pre class="rust"><code>
+</pre></div><pre class="rust"><code><span class="kw">use </span>serde_json::{<span class="self">self</span>, json, Value};
 <span class="kw">use </span>std::{collections::HashMap, fs};
-<span class="kw">use </span>serde_json::{<span class="self">self</span>, json, Value};
-
 
 <span class="kw">use </span><span class="kw">crate</span>::common_struct::Student;
 
@@ -94,8 +87,8 @@
 <span class="doccomment">/// Main function for processing students and updating JSON data using HashMap.
 
 </span><span class="kw">pub fn </span>student_hashmap_main() {
-
-    <span class="kw">let </span>content = fs::read_to_string(<span class="string">&quot;json_data/student_hashmap_json/StudentData.json&quot;</span>).expect(<span class="string">&quot;Failed to read file&quot;</span>);
+    <span class="kw">let </span>content = fs::read_to_string(<span class="string">&quot;json_data/student_hashmap_json/StudentData.json&quot;</span>)
+        .expect(<span class="string">&quot;Failed to read file&quot;</span>);
 
     <span class="comment">//Deserialize
     </span><span class="kw">let </span><span class="kw-2">mut </span>students: Vec&lt;Student&gt; = serde_json::from_str(<span class="kw-2">&amp;</span>content).expect(<span class="string">&quot;Failed to parse JSON&quot;</span>);
@@ -107,8 +100,8 @@
 
     </span><span class="kw">let </span><span class="kw-2">mut </span>student_vec: Vec&lt;HashMap&lt;<span class="kw-2">&amp;</span>str, Value&gt;&gt; = Vec::new();
 
-     <span class="comment">// Convert each student to a HashMap and add it to the vector
-    </span><span class="kw">for </span>student <span class="kw">in </span>students{
+    <span class="comment">// Convert each student to a HashMap and add it to the vector
+    </span><span class="kw">for </span>student <span class="kw">in </span>students {
         <span class="kw">let </span><span class="kw-2">mut </span>student_hashmap: HashMap&lt;<span class="kw-2">&amp;</span>str, Value&gt; = HashMap::new();
         student_hashmap.insert(<span class="string">&quot;name:&quot;</span>, Value::String(student.name.to_string()));
         student_hashmap.insert(<span class="string">&quot;phone:&quot;</span>, Value::String(student.phone.to_string()));
@@ -122,16 +115,13 @@
     }
 
     <span class="comment">// Serialize the updated student data to a JSON string
-    </span><span class="kw">let </span>updated_json = serde_json::to_string_pretty(<span class="kw-2">&amp;</span>student_vec).expect(<span class="string">&quot;Failed to serialize JSON&quot;</span>);
+    </span><span class="kw">let </span>updated_json =
+        serde_json::to_string_pretty(<span class="kw-2">&amp;</span>student_vec).expect(<span class="string">&quot;Failed to serialize JSON&quot;</span>);
 
-    fs::write(<span class="string">&quot;json_data/student_hashmap_json/StudentData_updated.json&quot;</span>,updated_json).expect(<span class="string">&quot;Failed to write file&quot;</span>);
+    fs::write(
+        <span class="string">&quot;json_data/student_hashmap_json/StudentData_updated.json&quot;</span>,
+        updated_json,
+    )
+    .expect(<span class="string">&quot;Failed to write file&quot;</span>);
 }
-
-
-
-
-
-
-
-
 </code></pre></div></section></main></body></html>

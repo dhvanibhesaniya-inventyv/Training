@@ -1,1 +1,1 @@
-window.ALL_CRATES = ["Myproject","cfg_if","getrandom","itoa","ppv_lite86","proc_macro2","quote","rand","rand_chacha","rand_core","ryu","serde","serde_derive","serde_json","syn","unicode_ident"];
+window.ALL_CRATES = ["Myproject","cfg_if","getrandom","itoa","lazy_static","ppv_lite86","proc_macro2","quote","rand","rand_chacha","rand_core","ryu","serde","serde_derive","serde_json","syn","unicode_ident"];

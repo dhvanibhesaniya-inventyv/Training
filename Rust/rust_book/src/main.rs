@@ -1,30 +1,23 @@
-use rust_book::{notify, NewsArticle, Summary, Tweet};
+use std::collections::HashMap;
+// use lazy_static::lazy_static;
 
-fn main(){
-   let tweet = Tweet{
-      username: String::from("horse_ebooks"),
-      content: String::from(" hi my name is dhvani"),
-      reply: false,
-      retweet: false
-   };
+#[macro_use]
+extern crate lazy_static;
 
-   println!("1 st new tweet: {}",tweet.summarize());
-   
+lazy_static! {
+    static ref HASHMAP: HashMap<u32, &'static str> = {
+        let mut m = HashMap::new();
+        m.insert(0, "foo");
+        m.insert(1, "bar");
+        m.insert(2, "baz");
+        m
+    };
+}
 
+fn main() {
+    // First access to `HASHMAP` initializes it
+    println!("The entry for `0` is \"{}\".", HASHMAP.get(&0).unwrap());
 
-   let article = NewsArticle{
-      headline: String::from("i won the cup"),
-      location:String::from("gondal,rajkot,india"),
-      author:String::from("dhvani"),
-      content:String::from(
-         "i am the best again \
-             at playing badminton.",
-   ),
-   };
-
-
-   println!("news article available! : {}",article.summarize());
-
-notify(&article);
-
+    // Any further access to `HASHMAP` just returns the computed value
+    println!("The entry for `1` is \"{}\".", HASHMAP.get(&1).unwrap());
 }

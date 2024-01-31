@@ -57,12 +57,9 @@
 <a href="#57" id="57">57</a>
 <a href="#58" id="58">58</a>
 <a href="#59" id="59">59</a>
-<a href="#60" id="60">60</a>
-<a href="#61" id="61">61</a>
-</pre></div><pre class="rust"><code>
-<span class="kw">use </span>std::{cmp::Ordering, io};
+</pre></div><pre class="rust"><code><span class="kw">use </span>std::{cmp::Ordering, io};
 <span class="comment">//  The Rng trait defines methods that random number generators implement,
-// dependency  
+// dependency
 // rand = &quot;0.8.5&quot;
 </span><span class="kw">use </span>rand::Rng;
 
@@ -92,13 +89,12 @@
 
         //The trim method on a String instance will eliminate any whitespace at the beginning and end,
         // let guess: u32 = guess.trim().parse().expect(&quot;please type a number&quot;);
-       
-       
-       // Handling Invalid Input
+
+        // Handling Invalid Input
         </span><span class="kw">let </span>guess: u32 = <span class="kw">match </span>guess.trim().parse() {
             <span class="prelude-val">Ok</span>(num) =&gt; num,
-            <span class="prelude-val">Err</span>(<span class="kw">_</span>) =&gt; <span class="kw">continue</span>,  <span class="comment">// The underscore, _, is a catchall value; in this example, we’re saying we want to match all Err values, no matter what information they have inside them. So the program will execute the second arm’s code,
-                                    //continue, which tells the program to go to the next iteration of the loop and ask for another guess. So, effectively, the program ignores all errors that parse might encounter!
+            <span class="prelude-val">Err</span>(<span class="kw">_</span>) =&gt; <span class="kw">continue</span>, <span class="comment">// The underscore, _, is a catchall value; in this example, we’re saying we want to match all Err values, no matter what information they have inside them. So the program will execute the second arm’s code,
+                                //continue, which tells the program to go to the next iteration of the loop and ask for another guess. So, effectively, the program ignores all errors that parse might encounter!
         </span>};
 
         <span class="macro">println!</span>(<span class="string">&quot;your guessed is  {guess} &quot;</span>);

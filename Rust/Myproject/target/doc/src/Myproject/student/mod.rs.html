@@ -42,10 +42,6 @@
 <a href="#42" id="42">42</a>
 <a href="#43" id="43">43</a>
 <a href="#44" id="44">44</a>
-<a href="#45" id="45">45</a>
-<a href="#46" id="46">46</a>
-<a href="#47" id="47">47</a>
-<a href="#48" id="48">48</a>
 </pre></div><pre class="rust"><code><span class="comment">// use serde::{Deserialize, Serialize};
 </span><span class="kw">use </span>serde_json;
 <span class="kw">use </span>std::fs;
@@ -73,10 +69,9 @@
 <span class="doccomment">/// Main function for processing student data, calculating percentage and grade, and updating JSON.
 
 </span><span class="kw">pub fn </span>student_main() {
-    
- <span class="comment">// Read JSON file content
-    </span><span class="kw">let </span>content = fs::read_to_string(<span class="string">&quot;json_data/student_json/StudentData.json&quot;</span>)
-        .expect(<span class="string">&quot;Failed to read file&quot;</span>);
+    <span class="comment">// Read JSON file content
+    </span><span class="kw">let </span>content =
+        fs::read_to_string(<span class="string">&quot;json_data/student_json/StudentData.json&quot;</span>).expect(<span class="string">&quot;Failed to read file&quot;</span>);
 
     <span class="comment">//Deserialize
     </span><span class="kw">let </span><span class="kw-2">mut </span>students: Vec&lt;Student&gt; = serde_json::from_str(<span class="kw-2">&amp;</span>content).expect(<span class="string">&quot;Failed to parse JSON&quot;</span>);
@@ -88,10 +83,7 @@
     <span class="comment">// Serialize
     </span><span class="kw">let </span>updated_json = serde_json::to_string_pretty(<span class="kw-2">&amp;</span>students).expect(<span class="string">&quot;Failed to serialize JSON&quot;</span>);
 
-    fs::write(
-        <span class="string">&quot;json_data/student_json/StudentData_new.json&quot;</span>,
-        updated_json,
-    )
-    .expect(<span class="string">&quot;Failed to write file&quot;</span>);
+    fs::write(<span class="string">&quot;json_data/student_json/StudentData_new.json&quot;</span>, updated_json)
+        .expect(<span class="string">&quot;Failed to write file&quot;</span>);
 }
 </code></pre></div></section></main></body></html>

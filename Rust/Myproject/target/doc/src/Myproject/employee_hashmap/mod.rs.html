@@ -88,33 +88,29 @@
 <a href="#88" id="88">88</a>
 <a href="#89" id="89">89</a>
 <a href="#90" id="90">90</a>
-<a href="#91" id="91">91</a>
-<a href="#92" id="92">92</a>
-<a href="#93" id="93">93</a>
 </pre></div><pre class="rust"><code><span class="comment">// Question_6 different json files with specified content  using hashmap
 
 //  1.  mid-level(software developer) and working on rust
 //  2. junior emp and working on rust
 //  3. senior emp or c#
 
-</span><span class="kw">use </span>std::{collections::HashMap, fs};
+</span><span class="kw">use </span><span class="kw">super</span>::common_struct::{Employee, Position, Skill};
 <span class="kw">use </span>serde_json::{<span class="self">self</span>, json, Value};
-<span class="kw">use </span><span class="kw">super</span>::common_struct::{Employee,Skill,Position};
-
+<span class="kw">use </span>std::{collections::HashMap, fs};
 
 <span class="comment">// #[warn(unused_must_use)]
 
 </span><span class="doccomment">/// Main function for categorizing employees into HasHmap data which write in different JSON files based on their position and skills.
 
 </span><span class="kw">pub fn </span>employee_hashmap_main() {
-    <span class="kw">let </span>file_content =
-        fs::read_to_string(<span class="string">&quot;json_data/employee_hashmap_json/Employee.json&quot;</span>).expect(<span class="string">&quot;Unable to read JSON file&quot;</span>);
+    <span class="kw">let </span>file_content = fs::read_to_string(<span class="string">&quot;json_data/employee_hashmap_json/Employee.json&quot;</span>)
+        .expect(<span class="string">&quot;Unable to read JSON file&quot;</span>);
 
     <span class="comment">// Deserialize
     </span><span class="kw">let </span>employees: Vec&lt;Employee&gt; =
         serde_json::from_str(<span class="kw-2">&amp;</span>file_content).expect(<span class="string">&quot;Failed to parse JSON&quot;</span>);
 
-            <span class="comment">// Create vectors ઓફ hashmap to store categorized employees
+    <span class="comment">// Create vectors ઓફ hashmap to store categorized employees
 
     </span><span class="kw">let </span><span class="kw-2">mut </span>soft_dev_employees: Vec&lt;HashMap&lt;String, Value&gt;&gt; = Vec::new();
     <span class="kw">let </span><span class="kw-2">mut </span>jr_employees: Vec&lt;HashMap&lt;String, Value&gt;&gt; = Vec::new();
@@ -124,7 +120,6 @@
     <span class="kw">for </span>employee <span class="kw">in </span><span class="kw-2">&amp;</span>employees {
         <span class="kw">let </span><span class="kw-2">mut </span>employee_map: HashMap&lt;String, Value&gt; = HashMap::new();
 
-        
         <span class="comment">// Insert employee details into the HashMap
 
         </span>employee_map.insert(<span class="string">&quot;name&quot;</span>.to_string(), <span class="macro">json!</span>(employee.name));
@@ -147,19 +142,18 @@
                 <span class="kw">_ </span>=&gt; {
                     <span class="kw">if </span>employee.skills.contains(<span class="kw-2">&amp;</span>Skill::CSharp) {
                         sr_or_c_employees.push(employee_map);
-                    } 
+                    }
+                }
             }
-        }
-        }
-        <span class="kw">else if </span>employee.skills.contains(<span class="kw-2">&amp;</span>Skill::CSharp) {
+        } <span class="kw">else if </span>employee.skills.contains(<span class="kw-2">&amp;</span>Skill::CSharp) {
             sr_or_c_employees.push(employee_map);
         } <span class="kw">else </span>{
             other_employees.push(employee_map);
         }
     }
-    
+
     <span class="comment">// Write categorized employees to separate JSON files
-    
+
     </span>fs::write(
         <span class="string">&quot;json_data/employee_hashmap_json/soft_dev_employee.json&quot;</span>,
         serde_json::to_string_pretty(<span class="kw-2">&amp;</span>soft_dev_employees).expect(<span class="string">&quot;Failed to serialize JSON&quot;</span>),
@@ -183,4 +177,5 @@
         serde_json::to_string_pretty(<span class="kw-2">&amp;</span>other_employees).expect(<span class="string">&quot;Failed to serialize JSON&quot;</span>),
     )
     .expect(<span class="string">&quot;Failed to write JSON file&quot;</span>);
-}</code></pre></div></section></main></body></html>
+}
+</code></pre></div></section></main></body></html>

@@ -55,8 +55,10 @@
 <a href="#55" id="55">55</a>
 <a href="#56" id="56">56</a>
 <a href="#57" id="57">57</a>
-</pre></div><pre class="rust"><code>
-<span class="doccomment">//!  MyProject contain 5 modules.
+<a href="#58" id="58">58</a>
+<a href="#59" id="59">59</a>
+<a href="#60" id="60">60</a>
+</pre></div><pre class="rust"><code><span class="doccomment">//!  MyProject contain 5 modules.
 
 </span><span class="comment">// use crate::employee::employee_main;
 // use crate::student::student_main;
@@ -65,10 +67,13 @@
 // use crate::two_string::single_string::main as single_main;
 // use crate::two_string::to_string::two_string_main;
 // use crate::area::main as area_main;
-</span><span class="kw">use </span><span class="kw">crate</span>::employee_hashmap::employee_hashmap_main;
-<span class="comment">// use crate::student_hashmap::student_hashmap_main;
+// use crate::employee_hashmap::employee_hashmap_main;
+// use crate::student_hashmap::student_hashmap_main;
 
-</span><span class="doccomment">/// The `common_struct` module contains common data structures used in the crate.
+</span><span class="kw">use </span><span class="kw">crate</span>::table_task_hashmap::table_task_hashmap_pdf;
+
+
+<span class="doccomment">/// The `common_struct` module contains common data structures used in the crate.
 </span><span class="kw">pub mod </span>common_struct;
 
 <span class="doccomment">/// The `employee` module contains functionality related to employees.
@@ -83,7 +88,7 @@
 <span class="doccomment">/// The `two_string` module contains functionality related to operations on two strings.
 </span><span class="kw">pub mod </span>two_string;
 
-<span class="doccomment">///  The `area` module contains values and function calling. 
+<span class="doccomment">///  The `area` module contains values and function calling.
 </span><span class="kw">pub mod </span>area;
 
 <span class="doccomment">/// The `employee` module contains functionality related to employees.
@@ -92,6 +97,8 @@
 <span class="doccomment">/// The `student` module contains functionality related to students.
 </span><span class="kw">pub mod </span>student_hashmap;
 
+<span class="doccomment">/// The `table_task` module contains functionality related to table tasks. and 
+</span><span class="kw">pub mod </span>table_task_hashmap;
 
 <span class="doccomment">/// The main entry point for the application.
 ///
@@ -106,10 +113,9 @@
     // single_main();
     //  table_main();
     // area_main();
-    </span>employee_hashmap_main();
-    <span class="comment">// student_hashmap_main()
-    
+    // employee_hashmap_main();
+    // student_hashmap_main()
 
-
-</span>}
+    </span>table_task_hashmap_pdf();
+}
 </code></pre></div></section></main></body></html>

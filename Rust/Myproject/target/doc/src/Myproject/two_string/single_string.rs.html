@@ -53,27 +53,24 @@
 <a href="#53" id="53">53</a>
 <a href="#54" id="54">54</a>
 <a href="#55" id="55">55</a>
-<a href="#56" id="56">56</a>
-<a href="#57" id="57">57</a>
-</pre></div><pre class="rust"><code>
-<span class="comment">// use std::io;
+</pre></div><pre class="rust"><code><span class="comment">// use std::io;
 
 </span><span class="doccomment">/// Main function for demonstrating character replacement in a string.
 
-</span><span class="kw">pub fn </span>main() -&gt; String{
+</span><span class="kw">pub fn </span>main() -&gt; String {
     <span class="comment">// // Take a string as input
-         // println!(&quot;Enter a string:&quot;);
-         // let mut input_string = String::new();
-         // io::stdin().read_line(&amp;mut input_string).expect(&quot;Failed to read line&quot;);
+    // println!(&quot;Enter a string:&quot;);
+    // let mut input_string = String::new();
+    // io::stdin().read_line(&amp;mut input_string).expect(&quot;Failed to read line&quot;);
 
-         </span><span class="kw">let </span>input_string = String::from(<span class="string">&quot;welcome to inventyv software services&quot;</span>);
+    </span><span class="kw">let </span>input_string = String::from(<span class="string">&quot;welcome to inventyv software services&quot;</span>);
 
     <span class="comment">// // Ask for a character to be removed
-         // println!(&quot;Enter a character to be removed:&quot;);
-         // let mut remove_char = String::new();
-         // io::stdin().read_line(&amp;mut remove_char).expect(&quot;Failed to read line&quot;);
+    // println!(&quot;Enter a character to be removed:&quot;);
+    // let mut remove_char = String::new();
+    // io::stdin().read_line(&amp;mut remove_char).expect(&quot;Failed to read line&quot;);
 
-         </span><span class="kw">let </span>remove_char = String::from(<span class="string">&quot;e&quot;</span>);
+    </span><span class="kw">let </span>remove_char = String::from(<span class="string">&quot;e&quot;</span>);
 
     <span class="kw">let </span>remove_char = remove_char.chars().next().expect(<span class="string">&quot;No character entered&quot;</span>);
 
@@ -111,5 +108,4 @@
     // // Print the updated string
     // println!(&quot;{}&quot;, new_replaced_string);
 </span>}
-
 </code></pre></div></section></main></body></html>

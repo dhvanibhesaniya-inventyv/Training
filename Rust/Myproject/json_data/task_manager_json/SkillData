@@ -1,0 +1,19 @@
+skills = [
+    "Customer Service",
+    "Problem-solving",
+    "Product Knowledge",
+    "Effective Communication",
+    "Time Management",
+    "Adaptability",
+    "Team Collaboration",
+    "Feedback Analysis",
+    "Proactive Engagement",
+    "Technical Proficiency",
+    "Cultural Sensitivity",
+    "Documentation",
+]
+
+// status
+on_off = [Online,Offline]    
+
+language = [English,Spanish]

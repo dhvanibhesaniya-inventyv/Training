@@ -1,7 +1,15 @@
 pub mod table_hashmap_struct_enum;
-// student structure
 
+// thread
+use chrono::{DateTime, Utc};
+
+// student, employee,table_task
 use serde::{Deserialize, Serialize};
+
+
+
+
+// student structure
 
 /// Represents a student with details such as name, phone, email, etc.
 #[derive(Debug, Deserialize, Serialize)]
@@ -15,6 +23,9 @@ pub struct Student {
     pub percentage: Option<f64>,
     pub grade: Option<String>,
 }
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------------------------------------
 
 // employee structure and enum
 
@@ -53,6 +64,11 @@ pub enum Position {
     #[serde(rename = "Project Manager")]
     ProjectManager,
 }
+
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 // table structure and its function
 
@@ -183,6 +199,12 @@ where
     input.trim().parse().expect("Failed to parse input")
 }
 
+
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 /// Area structure  contain length and breath.
 
 pub struct Area {
@@ -213,3 +235,102 @@ impl Area {
         println!("Area of circle is : {}", 3.14 * radius * radius);
     }
 }
+
+
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+
+// thread struct 
+#[derive(Debug)]
+pub struct PersonData {
+    pub id: u64,
+    pub name: String,
+    pub timestamp: DateTime<Utc>,
+}
+
+
+
+
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+
+// task_manager
+
+
+
+#[derive(Debug, Deserialize)]
+pub struct Individual {
+   pub  id: i32,
+   pub  name: String,
+   pub  skills: Vec<String>,
+   pub  status: String,
+   pub  language: String,
+}
+
+#[derive(Debug)]
+pub struct RequestData {
+    pub skill: String,
+    pub language: String,
+    pub status: Available,
+}
+
+#[derive(Debug, Deserialize)]
+pub enum Skills {
+    #[serde(rename(serialize = "Customer Service", deserialize = "Customer Service"))]
+     CustomerService,
+    #[serde(rename(serialize = "Problem-solving", deserialize = "Problem-solving"))]
+     ProblemSolving,
+    #[serde(rename(serialize = "Product Knowledge", deserialize = "Product Knowledge"))]
+     ProductKnowledge,
+    #[serde(rename(
+        serialize = "Effective Communication",
+        deserialize = "Effective Communication"
+    ))]
+     EffectiveCommunication,
+    #[serde(rename(serialize = "Time Management", deserialize = "Time Management"))]
+     TimeManagement,
+     Adaptability,
+    #[serde(rename(serialize = "Team Collaboration", deserialize = "Team Collaboration"))]
+     TeamCollaboration,
+    #[serde(rename(serialize = "Feedback Analysis", deserialize = "Feedback Analysis"))]
+     FeedbackAnalysis,
+    #[serde(rename(
+        serialize = "Proactive Engagement",
+        deserialize = "Proactive Engagement"
+    ))]
+     ProactiveEngagement,
+    #[serde(rename(
+        serialize = "Technical Proficiency",
+        deserialize = "Technical Proficiency"
+    ))]
+     TechnicalProficiency,
+    #[serde(rename(
+        serialize = "Cultural Sensitivity",
+        deserialize = "Cultural Sensitivity"
+    ))]
+     CulturalSensitivity,
+     Documentation,
+}
+
+#[derive(Debug, Deserialize)]
+pub enum Status {
+    Online,
+    Offline
+}
+
+#[derive(Debug, Deserialize)]
+pub enum Available {
+    Chat,
+    Call,
+}
+
+#[derive(Debug, Deserialize)]
+pub enum Language {
+    English,
+    Spanish,
+}
+
+
+

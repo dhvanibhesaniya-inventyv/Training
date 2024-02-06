@@ -9,8 +9,9 @@
 // use crate::area::main as area_main;
 // use crate::employee_hashmap::employee_hashmap_main;
 // use crate::student_hashmap::student_hashmap_main;
-
-use crate::table_task_hashmap::table_task_hashmap_pdf;
+// use crate::table_task_hashmap::table_task_hashmap_pdf;
+use crate::thread::person_data_thread::person_data_main;
+use crate::thread::task_manager::task_manager_main;
 
 
 /// The `common_struct` module contains common data structures used in the crate.
@@ -40,6 +41,12 @@ pub mod student_hashmap;
 /// The `table_task` module contains functionality related to table tasks. and 
 pub mod table_task_hashmap;
 
+
+/// The `thread` module contains functionality related to threads.
+pub mod thread;
+
+
+
 /// The main entry point for the application.
 ///
 /// It calls functions from various modules to demonstrate functionality.
@@ -48,13 +55,16 @@ pub fn main() {
 
     // student_main();
     // employee_main();
-    // gussing_main(); // two_string::gussing_game::gussing_main();
-    // two_string_main(); // two_string::to_string::two_string_main();
+    
+    // gussing_main();         // two_string::gussing_game::gussing_main();
+    // two_string_main();      // two_string::to_string::two_string_main();
     // single_main();
     //  table_main();
     // area_main();
     // employee_hashmap_main();
     // student_hashmap_main()
+    // table_task_hashmap_pdf();
 
-    table_task_hashmap_pdf();
+    // person_data_main();
+    task_manager_main();
 }

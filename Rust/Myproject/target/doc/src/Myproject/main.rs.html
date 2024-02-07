@@ -58,7 +58,17 @@
 <a href="#58" id="58">58</a>
 <a href="#59" id="59">59</a>
 <a href="#60" id="60">60</a>
-</pre></div><pre class="rust"><code><span class="doccomment">//!  MyProject contain 5 modules.
+<a href="#61" id="61">61</a>
+<a href="#62" id="62">62</a>
+<a href="#63" id="63">63</a>
+<a href="#64" id="64">64</a>
+<a href="#65" id="65">65</a>
+<a href="#66" id="66">66</a>
+<a href="#67" id="67">67</a>
+<a href="#68" id="68">68</a>
+<a href="#69" id="69">69</a>
+<a href="#70" id="70">70</a>
+</pre></div><pre class="rust"><code><span class="doccomment">//!  MyProject contain 10 modules.
 
 </span><span class="comment">// use crate::employee::employee_main;
 // use crate::student::student_main;
@@ -69,8 +79,9 @@
 // use crate::area::main as area_main;
 // use crate::employee_hashmap::employee_hashmap_main;
 // use crate::student_hashmap::student_hashmap_main;
-
-</span><span class="kw">use </span><span class="kw">crate</span>::table_task_hashmap::table_task_hashmap_pdf;
+// use crate::table_task_hashmap::table_task_hashmap_pdf;
+//use crate::thread::person_data_thread::person_data_main;
+</span><span class="kw">use </span><span class="kw">crate</span>::thread::task_manager::task_manager_main;
 
 
 <span class="doccomment">/// The `common_struct` module contains common data structures used in the crate.
@@ -100,6 +111,12 @@
 <span class="doccomment">/// The `table_task` module contains functionality related to table tasks. and 
 </span><span class="kw">pub mod </span>table_task_hashmap;
 
+
+<span class="doccomment">/// The `thread` module contains functionality related to threads.
+</span><span class="kw">pub mod </span>thread;
+
+
+
 <span class="doccomment">/// The main entry point for the application.
 ///
 /// It calls functions from various modules to demonstrate functionality.
@@ -108,14 +125,17 @@
 
     // student_main();
     // employee_main();
-    // gussing_main(); // two_string::gussing_game::gussing_main();
-    // two_string_main(); // two_string::to_string::two_string_main();
+    
+    // gussing_main();         // two_string::gussing_game::gussing_main();
+    // two_string_main();      // two_string::to_string::two_string_main();
     // single_main();
     //  table_main();
     // area_main();
     // employee_hashmap_main();
     // student_hashmap_main()
+    // table_task_hashmap_pdf();
 
-    </span>table_task_hashmap_pdf();
+    // person_data_main();
+    </span>task_manager_main();
 }
 </code></pre></div></section></main></body></html>

@@ -1,21 +1,33 @@
+// use crate::common_struct::{Available, RequestData};
+use crate::thread::task_manager::{HASH_DATA, REF2};
+use std::collections::VecDeque;
 
-use crate::{common_struct::Available, thread::task_manager::{CALL_VECTOR, CHAT_VECTOR, REF2}};
+pub fn biforcation_data() {
+    if let Some(request_data) = REF2.write().expect("unavailable").pop_front() {
+        let key = format!(
+            "{}_{}_{}_L1",
+            request_data.skill, request_data.language, request_data.status,
+        );
 
+        // Update the hashmap with an empty VecDeque if the key doesn't exist
+        HASH_DATA
+            .write()
+            .unwrap()
+            .entry(key)
+            .or_insert_with(VecDeque::new)
+            .push_back(request_data);
 
-pub fn biforcation_data(){
-
-        let mut data2 = REF2.write().unwrap();
-
-        for _i in 0..data2.len() {
-            let popedvalue = data2.pop().unwrap();
-
-            match popedvalue.status {
-                Available::Chat => {
-                    CHAT_VECTOR.write().unwrap().push_back(popedvalue);
-                }
-                Available::Call => {
-                    CALL_VECTOR.write().unwrap().push_back(popedvalue);
-                }
-            }
-        }
+        // println!("Hashmap: {:#?}",HASH_DATA.read().unwrap());
     }
+
+    
+    
+    // let hash_data_read = HASH_DATA.read().expect("unavailable");
+
+    // for (key, value) in hash_data_read.iter() {
+    //     println!("key: {:#?}, value: {:#?}", key, value);
+    // }
+
+
+    println!("Biforcation done .......")
+}

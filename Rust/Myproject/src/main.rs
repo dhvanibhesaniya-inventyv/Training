@@ -1,4 +1,4 @@
-//!  MyProject contain 5 modules.
+//!  MyProject contain 10 modules.
 
 // use crate::employee::employee_main;
 // use crate::student::student_main;
@@ -10,7 +10,7 @@
 // use crate::employee_hashmap::employee_hashmap_main;
 // use crate::student_hashmap::student_hashmap_main;
 // use crate::table_task_hashmap::table_task_hashmap_pdf;
-use crate::thread::person_data_thread::person_data_main;
+//use crate::thread::person_data_thread::person_data_main;
 use crate::thread::task_manager::task_manager_main;
 
 

@@ -273,7 +273,8 @@ pub struct Individual {
 pub struct RequestData {
     pub skill: String,
     pub language: String,
-    pub status: Available,
+    pub status: String,
+    pub timestamp:DateTime<Utc>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -326,11 +327,23 @@ pub enum Available {
     Call,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize,PartialEq)]
 pub enum Language {
     English,
     Spanish,
 }
+
+#[derive(Debug, Deserialize)]
+pub enum Level {
+    L1,
+    L2,
+    L3,
+    L4,
+    L5,
+}
+
+
+
 
 
 

@@ -20,7 +20,7 @@ pub fn task_assigner_from_hash_main() {
                             && ((key.contains("Call") && user.status == "Offline")
                                 || (key.contains("Chat") && user.status == "Online"))
                         {
-                            println!("Matched data for user ID {}: {:?}", user.id, request_data);
+                            println!("Matched data with Master Data user ID {}: {:?}", user.id, request_data);
                             matched = true;
                             break;
                         }
@@ -38,4 +38,5 @@ pub fn task_assigner_from_hash_main() {
         }
     }
     // }
+    println!("task Assigned ........")
 }

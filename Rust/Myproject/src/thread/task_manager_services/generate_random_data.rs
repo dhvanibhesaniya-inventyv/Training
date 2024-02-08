@@ -1,27 +1,27 @@
 use rand::Rng;
 
-use crate::{common_struct::RequestData, thread::task_manager::REF1};
+use crate::{common_struct::RequestData, thread::task_manager::REF1, thread::task_manager::SKILLS};
 
 pub fn random_data() {
     let random_skill = rand::thread_rng().gen_range(0..=11);
     let random_language = rand::thread_rng().gen_range(0..=1);
     let random_status = rand::thread_rng().gen_range(0..=1);
 
-    let person_skills = [
-        "Customer Service",
-        "Problem-solving",
-        "Product Knowledge",
-        "Effective Communication",
-        "Time Management",
-        "Adaptability",
-        "Team Collaboration",
-        "Feedback Analysis",
-        "Proactive Engagement",
-        "Technical Proficiency",
-        "Cultural Sensitivity",
-        "Documentation",
-    ];
-    let skill = person_skills[random_skill].to_string();
+    // let person_skills = [
+    //     "Customer Service",
+    //     "Problem-solving",
+    //     "Product Knowledge",
+    //     "Effective Communication",
+    //     "Time Management",
+    //     "Adaptability",
+    //     "Team Collaboration",
+    //     "Feedback Analysis",
+    //     "Proactive Engagement",
+    //     "Technical Proficiency",
+    //     "Cultural Sensitivity",
+    //     "Documentation",
+    // ];
+    let skill = SKILLS[random_skill].to_string();
 
     let person_language = ["English", "Spanish"];
     // let language = match random_language {
@@ -46,11 +46,11 @@ pub fn random_data() {
         timestamp: chrono::Utc::now(),
     };
 
-    let mut data = REF1.write().unwrap();
+    let mut data = REF1.write().expect("unavailable");
     data.push_back(request_data);
     
-    // println!("Random data generated: {:?}", data);
-    println!("Random data generated: .........");
+    println!("Random data generated: {:?}", data);
+    // println!("Random data generated: .........");
 
     // Optionally pop the data if you don't need it in the vector
     // data.pop();

@@ -66,34 +66,40 @@ lazy_static! {
 
 /// The main entry point for the task manager.
 pub fn task_manager_main() {
+
+
     // Thread to generate random data
     let random_data_thread: thread::JoinHandle<_> = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(2));
+        thread::sleep(Duration::from_secs(5));      // 5   or // 1
         random_data();
     });
 
+
     // Thread to biforcate data from random Data
     let process_data_thread = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(5));
+        thread::sleep(Duration::from_secs(2));    // 2    or // 2 
 
         biforcation_data();
     });
 
+
     // Thread to biforcate data in levels according to their timeSpan
     let process_data_thread_level = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(30));
+        thread::sleep(Duration::from_secs(30));     // 30    or // 25
         biforcation_data_level();
     });
 
-    // Update the master data
+
+    // Update the master data randomly
     let master_data_updata = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(5));
+        thread::sleep(Duration::from_secs(5));    // 5    or // 60
         update_user_data_randomly();
     });
 
+
     // thread for assigning tasks from hash data
     let task_assigner_from_hash = thread::spawn(move || loop {
-        thread::sleep(Duration::from_secs(5));
+        thread::sleep(Duration::from_secs(5));     //5     or // 60
         task_assigner_from_hash_main();
     });
 
@@ -107,7 +113,7 @@ pub fn task_manager_main() {
     task_assigner_from_hash
         .join()
         .expect("failed to join thread");
-    // match_data_thread.join().expect("failed to join thread");
+
 
     // for i in HASH_DATA.read().unwrap().iter(){
     // println!("key: {:?}, value: {:?}", i.0, i.1);

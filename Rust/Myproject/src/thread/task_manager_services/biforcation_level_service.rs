@@ -6,7 +6,7 @@ pub fn biforcation_data_level() {
     let mut hash_temp = HashMap::new();
     let current_time = Utc::now();
 
-    for (each_key, each_queue) in HASH_DATA.write().unwrap().iter_mut() {
+    for (each_key, each_queue) in HASH_DATA.write().expect("unavailable").iter_mut() {
         let mut new_queue_name: Option<String> = None;
         let mut list_req = VecDeque::new();
 
@@ -27,7 +27,9 @@ pub fn biforcation_data_level() {
                 };
                 let mut temp_name = queue_name.join("_");
                 temp_name = temp_name.replace(old_level, new_level);
-                // println!("Old level: {} and new level: {}", old_level, new_level);
+                // println!("Old level: {} ->->->->->->->  new level: {}", old_level, new_level);
+                println!("Data moves from the levels.............");
+
                 new_queue_name = Some(temp_name);
 
                 list_req.push_back(each_req);
@@ -42,7 +44,7 @@ pub fn biforcation_data_level() {
     for (each_key, mut each_req) in hash_temp {
         HASH_DATA
             .write()
-            .unwrap()
+            .expect("unavailable")
             .entry(each_key)
             .and_modify(|queue| {
                 queue.append(&mut each_req);

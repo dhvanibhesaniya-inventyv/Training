@@ -12,8 +12,9 @@
 // use crate::table_task_hashmap::table_task_hashmap_pdf;
 //use crate::thread::person_data_thread::person_data_main;
 // use crate::thread::task_manager::task_manager_main;
+use crate::Routing_Crud::main as crud_operation;
 
-use crate::Testing::simple_testing::main as tesing;
+// use crate::Testing::simple_testing::main as tesing;
 
 
 /// The `common_struct` module contains common data structures used in the crate.
@@ -47,8 +48,11 @@ pub mod table_task_hashmap;
 /// The `thread` module contains functionality related to threads.
 pub mod thread;
 
-
+/// The `Testing` module contains functionality related to testing.
 pub mod Testing;
+
+
+pub mod Routing_Crud;
 
 
 /// The main entry point for the application.
@@ -71,7 +75,9 @@ pub fn main() {
 
     // person_data_main();
     // task_manager_main();
+    // tesing();
 
-    tesing();
+    crud_operation();
+
     
 }

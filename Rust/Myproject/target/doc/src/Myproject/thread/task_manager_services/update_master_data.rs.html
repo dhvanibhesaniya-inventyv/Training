@@ -56,28 +56,28 @@
 <a href="#56" id="56">56</a>
 <a href="#57" id="57">57</a>
 <a href="#58" id="58">58</a>
-</pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::thread::task_manager::USER_DATA;
+</pre></div><pre class="rust"><code><span class="kw">use crate</span>::{common_struct::Skill, thread::task_manager::{SKILLS, USER_DATA}};
 <span class="kw">use </span>rand::{thread_rng, Rng};
 
 <span class="kw">pub fn </span>update_user_data_randomly() {
     <span class="kw">let </span><span class="kw-2">mut </span>user_data = USER_DATA.write().unwrap();
 
-    <span class="kw">let </span>person_skills = <span class="macro">vec!</span>[
-        <span class="string">&quot;Customer Service&quot;</span>.to_string(),
-        <span class="string">&quot;Problem-solving&quot;</span>.to_string(),
-        <span class="string">&quot;Product Knowledge&quot;</span>.to_string(),
-        <span class="string">&quot;Effective Communication&quot;</span>.to_string(),
-        <span class="string">&quot;Time Management&quot;</span>.to_string(),
-        <span class="string">&quot;Adaptability&quot;</span>.to_string(),
-        <span class="string">&quot;Team Collaboration&quot;</span>.to_string(),
-        <span class="string">&quot;Feedback Analysis&quot;</span>.to_string(),
-        <span class="string">&quot;Proactive Engagement&quot;</span>.to_string(),
-        <span class="string">&quot;Technical Proficiency&quot;</span>.to_string(),
-        <span class="string">&quot;Cultural Sensitivity&quot;</span>.to_string(),
-        <span class="string">&quot;Documentation&quot;</span>.to_string(),
-    ];
+    <span class="comment">// let person_skills = vec![
+    //     &quot;Customer Service&quot;.to_string(),
+    //     &quot;Problem-solving&quot;.to_string(),
+    //     &quot;Product Knowledge&quot;.to_string(),
+    //     &quot;Effective Communication&quot;.to_string(),
+    //     &quot;Time Management&quot;.to_string(),
+    //     &quot;Adaptability&quot;.to_string(),
+    //     &quot;Team Collaboration&quot;.to_string(),
+    //     &quot;Feedback Analysis&quot;.to_string(),
+    //     &quot;Proactive Engagement&quot;.to_string(),
+    //     &quot;Technical Proficiency&quot;.to_string(),
+    //     &quot;Cultural Sensitivity&quot;.to_string(),
+    //     &quot;Documentation&quot;.to_string(),
+    // ];
 
-    <span class="kw">let </span>person_language = [<span class="string">&quot;English&quot;</span>, <span class="string">&quot;Spanish&quot;</span>];
+    </span><span class="kw">let </span>person_language = [<span class="string">&quot;English&quot;</span>, <span class="string">&quot;Spanish&quot;</span>];
     <span class="kw">let </span>statuses = [<span class="string">&quot;Online&quot;</span>, <span class="string">&quot;Offline&quot;</span>];
 
     <span class="kw">for </span>user <span class="kw">in </span>user_data.iter_mut() {
@@ -96,17 +96,17 @@
         <span class="kw">let </span><span class="kw-2">mut </span>rng = thread_rng();
 
         <span class="kw">for _ in </span><span class="number">0</span>..num_skills {
-            <span class="kw">let </span>skill_index = rng.gen_range(<span class="number">0</span>..person_skills.len());
-            <span class="kw">let </span>new_skill = person_skills[skill_index].to_string();
+            <span class="kw">let </span>skill_index = rng.gen_range(<span class="number">0</span>..SKILLS.len());
+            <span class="kw">let </span>new_skill = SKILLS[skill_index].to_string();
 
             <span class="kw">if </span>!user.skills.contains(<span class="kw-2">&amp;</span>new_skill) {
                 user.skills.push(new_skill);
             } <span class="kw">else </span>{
-                <span class="kw">let </span><span class="kw-2">mut </span>new_skill_index = rng.gen_range(<span class="number">0</span>..person_skills.len());
-                <span class="kw">while </span>user.skills.contains(<span class="kw-2">&amp;</span>person_skills[new_skill_index]) {
-                    new_skill_index = rng.gen_range(<span class="number">0</span>..person_skills.len());
+                <span class="kw">let </span><span class="kw-2">mut </span>new_skill_index = rng.gen_range(<span class="number">0</span>..SKILLS.len());
+                <span class="kw">while </span>user.skills.contains(<span class="kw-2">&amp;</span>SKILLS[new_skill_index]) {
+                    new_skill_index = rng.gen_range(<span class="number">0</span>..SKILLS.len());
                 }
-                user.skills.push(person_skills[new_skill_index].to_string());
+                user.skills.push(SKILLS[new_skill_index].to_string());
             }
         }
     }

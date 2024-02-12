@@ -57,28 +57,28 @@
 <a href="#57" id="57">57</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span>rand::Rng;
 
-<span class="kw">use crate</span>::{common_struct::RequestData, thread::task_manager::REF1};
+<span class="kw">use crate</span>::{common_struct::RequestData, thread::task_manager::REF1, thread::task_manager::SKILLS};
 
 <span class="kw">pub fn </span>random_data() {
     <span class="kw">let </span>random_skill = rand::thread_rng().gen_range(<span class="number">0</span>..=<span class="number">11</span>);
     <span class="kw">let </span>random_language = rand::thread_rng().gen_range(<span class="number">0</span>..=<span class="number">1</span>);
     <span class="kw">let </span>random_status = rand::thread_rng().gen_range(<span class="number">0</span>..=<span class="number">1</span>);
 
-    <span class="kw">let </span>person_skills = [
-        <span class="string">&quot;Customer Service&quot;</span>,
-        <span class="string">&quot;Problem-solving&quot;</span>,
-        <span class="string">&quot;Product Knowledge&quot;</span>,
-        <span class="string">&quot;Effective Communication&quot;</span>,
-        <span class="string">&quot;Time Management&quot;</span>,
-        <span class="string">&quot;Adaptability&quot;</span>,
-        <span class="string">&quot;Team Collaboration&quot;</span>,
-        <span class="string">&quot;Feedback Analysis&quot;</span>,
-        <span class="string">&quot;Proactive Engagement&quot;</span>,
-        <span class="string">&quot;Technical Proficiency&quot;</span>,
-        <span class="string">&quot;Cultural Sensitivity&quot;</span>,
-        <span class="string">&quot;Documentation&quot;</span>,
-    ];
-    <span class="kw">let </span>skill = person_skills[random_skill].to_string();
+    <span class="comment">// let person_skills = [
+    //     &quot;Customer Service&quot;,
+    //     &quot;Problem-solving&quot;,
+    //     &quot;Product Knowledge&quot;,
+    //     &quot;Effective Communication&quot;,
+    //     &quot;Time Management&quot;,
+    //     &quot;Adaptability&quot;,
+    //     &quot;Team Collaboration&quot;,
+    //     &quot;Feedback Analysis&quot;,
+    //     &quot;Proactive Engagement&quot;,
+    //     &quot;Technical Proficiency&quot;,
+    //     &quot;Cultural Sensitivity&quot;,
+    //     &quot;Documentation&quot;,
+    // ];
+    </span><span class="kw">let </span>skill = SKILLS[random_skill].to_string();
 
     <span class="kw">let </span>person_language = [<span class="string">&quot;English&quot;</span>, <span class="string">&quot;Spanish&quot;</span>];
     <span class="comment">// let language = match random_language {
@@ -103,13 +103,13 @@
         timestamp: chrono::Utc::now(),
     };
 
-    <span class="kw">let </span><span class="kw-2">mut </span>data = REF1.write().unwrap();
+    <span class="kw">let </span><span class="kw-2">mut </span>data = REF1.write().expect(<span class="string">&quot;unavailable&quot;</span>);
     data.push_back(request_data);
     
-    <span class="comment">// println!(&quot;Random data generated: {:?}&quot;, data);
-    </span><span class="macro">println!</span>(<span class="string">&quot;Random data generated: .........&quot;</span>);
+    <span class="macro">println!</span>(<span class="string">&quot;Random data generated: {:?}&quot;</span>, data);
+    <span class="comment">// println!(&quot;Random data generated: .........&quot;);
 
-    <span class="comment">// Optionally pop the data if you don&#39;t need it in the vector
+    // Optionally pop the data if you don&#39;t need it in the vector
     // data.pop();
 </span>}
 </code></pre></div></section></main></body></html>

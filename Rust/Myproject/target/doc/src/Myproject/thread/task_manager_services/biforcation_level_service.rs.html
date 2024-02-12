@@ -49,6 +49,8 @@
 <a href="#49" id="49">49</a>
 <a href="#50" id="50">50</a>
 <a href="#51" id="51">51</a>
+<a href="#52" id="52">52</a>
+<a href="#53" id="53">53</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::thread::task_manager::HASH_DATA;
 <span class="kw">use </span>chrono::Utc;
 <span class="kw">use </span>std::collections::{HashMap, VecDeque};
@@ -57,7 +59,7 @@
     <span class="kw">let </span><span class="kw-2">mut </span>hash_temp = HashMap::new();
     <span class="kw">let </span>current_time = Utc::now();
 
-    <span class="kw">for </span>(each_key, each_queue) <span class="kw">in </span>HASH_DATA.write().unwrap().iter_mut() {
+    <span class="kw">for </span>(each_key, each_queue) <span class="kw">in </span>HASH_DATA.write().expect(<span class="string">&quot;unavailable&quot;</span>).iter_mut() {
         <span class="kw">let </span><span class="kw-2">mut </span>new_queue_name: <span class="prelude-ty">Option</span>&lt;String&gt; = <span class="prelude-val">None</span>;
         <span class="kw">let </span><span class="kw-2">mut </span>list_req = VecDeque::new();
 
@@ -78,8 +80,10 @@
                 };
                 <span class="kw">let </span><span class="kw-2">mut </span>temp_name = queue_name.join(<span class="string">&quot;_&quot;</span>);
                 temp_name = temp_name.replace(old_level, new_level);
-                <span class="comment">// println!(&quot;Old level: {} and new level: {}&quot;, old_level, new_level);
-                </span>new_queue_name = <span class="prelude-val">Some</span>(temp_name);
+                <span class="comment">// println!(&quot;Old level: {} -&gt;-&gt;-&gt;-&gt;-&gt;-&gt;-&gt;  new level: {}&quot;, old_level, new_level);
+                </span><span class="macro">println!</span>(<span class="string">&quot;Data moves from the levels.............&quot;</span>);
+
+                new_queue_name = <span class="prelude-val">Some</span>(temp_name);
 
                 list_req.push_back(each_req);
             }
@@ -93,7 +97,7 @@
     <span class="kw">for </span>(each_key, <span class="kw-2">mut </span>each_req) <span class="kw">in </span>hash_temp {
         HASH_DATA
             .write()
-            .unwrap()
+            .expect(<span class="string">&quot;unavailable&quot;</span>)
             .entry(each_key)
             .and_modify(|queue| {
                 queue.append(<span class="kw-2">&amp;mut </span>each_req);

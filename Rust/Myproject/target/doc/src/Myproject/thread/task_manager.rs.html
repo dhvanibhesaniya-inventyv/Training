@@ -113,6 +113,12 @@
 <a href="#113" id="113">113</a>
 <a href="#114" id="114">114</a>
 <a href="#115" id="115">115</a>
+<a href="#116" id="116">116</a>
+<a href="#117" id="117">117</a>
+<a href="#118" id="118">118</a>
+<a href="#119" id="119">119</a>
+<a href="#120" id="120">120</a>
+<a href="#121" id="121">121</a>
 </pre></div><pre class="rust"><code><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">use </span>lazy_static::lazy_static;
 <span class="kw">use </span>std::{
     collections::{HashMap, VecDeque},
@@ -181,35 +187,41 @@
 
 <span class="doccomment">/// The main entry point for the task manager.
 </span><span class="kw">pub fn </span>task_manager_main() {
+
+
     <span class="comment">// Thread to generate random data
     </span><span class="kw">let </span>random_data_thread: thread::JoinHandle&lt;<span class="kw">_</span>&gt; = thread::spawn(<span class="kw">move </span>|| <span class="kw">loop </span>{
-        thread::sleep(Duration::from_secs(<span class="number">2</span>));
-        random_data();
+        thread::sleep(Duration::from_secs(<span class="number">5</span>));      <span class="comment">// 5   or // 1
+        </span>random_data();
     });
+
 
     <span class="comment">// Thread to biforcate data from random Data
     </span><span class="kw">let </span>process_data_thread = thread::spawn(<span class="kw">move </span>|| <span class="kw">loop </span>{
-        thread::sleep(Duration::from_secs(<span class="number">5</span>));
+        thread::sleep(Duration::from_secs(<span class="number">2</span>));    <span class="comment">// 2    or // 2 
 
-        biforcation_data();
+        </span>biforcation_data();
     });
+
 
     <span class="comment">// Thread to biforcate data in levels according to their timeSpan
     </span><span class="kw">let </span>process_data_thread_level = thread::spawn(<span class="kw">move </span>|| <span class="kw">loop </span>{
-        thread::sleep(Duration::from_secs(<span class="number">30</span>));
-        biforcation_data_level();
+        thread::sleep(Duration::from_secs(<span class="number">30</span>));     <span class="comment">// 30    or // 25
+        </span>biforcation_data_level();
     });
 
-    <span class="comment">// Update the master data
+
+    <span class="comment">// Update the master data randomly
     </span><span class="kw">let </span>master_data_updata = thread::spawn(<span class="kw">move </span>|| <span class="kw">loop </span>{
-        thread::sleep(Duration::from_secs(<span class="number">5</span>));
-        update_user_data_randomly();
+        thread::sleep(Duration::from_secs(<span class="number">5</span>));    <span class="comment">// 5    or // 60
+        </span>update_user_data_randomly();
     });
+
 
     <span class="comment">// thread for assigning tasks from hash data
     </span><span class="kw">let </span>task_assigner_from_hash = thread::spawn(<span class="kw">move </span>|| <span class="kw">loop </span>{
-        thread::sleep(Duration::from_secs(<span class="number">5</span>));
-        task_assigner_from_hash_main();
+        thread::sleep(Duration::from_secs(<span class="number">5</span>));     <span class="comment">//5     or // 60
+        </span>task_assigner_from_hash_main();
     });
 
 
@@ -222,9 +234,9 @@
     task_assigner_from_hash
         .join()
         .expect(<span class="string">&quot;failed to join thread&quot;</span>);
-    <span class="comment">// match_data_thread.join().expect(&quot;failed to join thread&quot;);
 
-    // for i in HASH_DATA.read().unwrap().iter(){
+
+    <span class="comment">// for i in HASH_DATA.read().unwrap().iter(){
     // println!(&quot;key: {:?}, value: {:?}&quot;, i.0, i.1);
     // }
 </span>}

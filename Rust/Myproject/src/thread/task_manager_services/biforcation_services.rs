@@ -17,6 +17,7 @@ pub fn biforcation_data() {
             .or_insert_with(VecDeque::new)
             .push_back(request_data);
 
+        println!("Biforcation done .......")
         // println!("Hashmap: {:#?}",HASH_DATA.read().expect());
     }
 
@@ -29,5 +30,4 @@ pub fn biforcation_data() {
     // }
 
 
-    println!("Biforcation done .......")
 }

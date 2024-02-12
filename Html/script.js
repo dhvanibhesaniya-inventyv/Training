@@ -1,4 +1,4 @@
-//   question 1 :  
+//   question 1 : Implement a function in JavaScript that stores the elements of an array and calculates the sum of its values. Additionally, integrate functionality to fetch an image API using promises with both resolve and reject mechanisms. 
 
 function mergeArray(fe, myArray) {
     return new Promise((resolve, reject) => {

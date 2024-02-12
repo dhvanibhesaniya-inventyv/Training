@@ -14,7 +14,7 @@ This repository encompasses the work completed during an industrial internship. 
     - Login and registration pages
     - Script code addressing various questions specified within the .js file.
 
-### 3. Main:
+### 3. PascalPrimeAnalyzer:
 ###### -  ( Must see the content )
 - Comprises HTML, CSS, and JavaScript files that showcase:
     - Display of a Pascal tree through JavaScript

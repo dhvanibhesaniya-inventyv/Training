@@ -17,19 +17,12 @@ struct User {
 }
 
 lazy_static::lazy_static! {
-    static ref USERS: Arc<RwLock<Vec<User>>> = Arc::new(RwLock::new(vec![
-        User { id: 1, name: "Elijah".to_string(), email: "elijah@example.com".to_string() },
-        User { id: 2, name: "John".to_string(), email: "john@example.com".to_string() },
-        User { id: 3, name: "Alice".to_string(), email: "alice@example.com".to_string() },
-        User { id: 4, name: "Bob".to_string(), email: "bob@example.com".to_string() },
-        User { id: 5, name: "Charlie".to_string(), email: "charlie@example.com".to_string() },
-    ]));
+    static ref USERS: Arc<RwLock<Vec<User>>> = Arc::new(RwLock::new(Vec::new()));
 }
 
 async fn create_user() -> impl IntoResponse {
     // Reset user data by clearing the vector and pushing new data
     let mut users = USERS.write().unwrap();
-    users.clear();
     users.push(User { id: 1, name: "Elijah".to_string(), email: "elijah@example.com".to_string() });
     users.push(User { id: 2, name: "John".to_string(), email: "john@example.com".to_string() });
     users.push(User { id: 3, name: "Alice".to_string(), email: "alice@example.com".to_string() });
@@ -38,7 +31,7 @@ async fn create_user() -> impl IntoResponse {
 
     Response::builder()
         .status(StatusCode::CREATED)
-        .body(Body::from("User data reset successfully"))
+        .body(Body::from("User data entered successfully"))
         .unwrap()
 }
 
@@ -91,5 +84,3 @@ pub async fn main() {
         .await
         .unwrap();
 }
-
-

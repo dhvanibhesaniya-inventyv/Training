@@ -12,7 +12,7 @@ use serde::{Deserialize, Serialize};
 // student structure
 
 /// Represents a student with details such as name, phone, email, etc.
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize,Clone)]
 pub struct Student {
     pub name: String,
     pub phone: String,
@@ -30,7 +30,7 @@ pub struct Student {
 // employee structure and enum
 
 /// Represents an employee with details like name, age, skills, position, and experience.
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize,Clone)]
 pub struct Employee {
     pub name: String,
     pub age: i32,
@@ -41,7 +41,7 @@ pub struct Employee {
 }
 
 /// Represents a skill that an employee may possess.
-#[derive(Debug, Deserialize, Serialize, PartialEq)]
+#[derive(Debug, Deserialize, Serialize, PartialEq,Clone)]
 pub enum Skill {
     #[serde(rename = "C#")]
     CSharp,
@@ -51,7 +51,7 @@ pub enum Skill {
 }
 
 /// Represents a position that an employee may hold.
-#[derive(Debug, Deserialize, Serialize, PartialEq)]
+#[derive(Debug, Deserialize, Serialize, PartialEq,Clone)]
 pub enum Position {
     #[serde(rename = "Software Developer")]
     SoftwareDeveloper,
@@ -344,6 +344,48 @@ pub enum Level {
 
 
 
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Axum - server
 
 
+#[derive(Deserialize, Serialize, Clone)]
+pub struct AEmployee {
+   pub  id: u32,
+   pub  name: String,
+   pub  age: u32,
+   pub  skills: Vec<String>,
+   pub  position: Option<String>,
+   #[serde(rename(serialize = "experience(y)", deserialize = "experience(y)"))]
+   pub  experience: Option<u32>,
+}
+
+
+#[derive(Deserialize, Serialize, Clone)]
+pub struct MasterData {
+    pub id: u32,
+    pub name: String,
+    pub skills: Vec<String>,
+    pub status: String,
+    pub language: String,
+}
+
+#[derive(Deserialize, Serialize, Clone)]
+pub struct AStudent {
+    pub id: u32,
+    pub  name: String,
+    pub phone: String,
+    pub email: String,
+    pub city: String,
+    pub address: String,
+    pub marks: Vec<u32>,
+}
+
+#[derive(Serialize)]
+pub struct Message<T> {
+    pub status: u32,
+    pub message_key: String,
+    pub data: T,
+}
 

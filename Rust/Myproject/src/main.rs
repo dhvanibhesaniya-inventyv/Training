@@ -12,9 +12,13 @@
 // use crate::table_task_hashmap::table_task_hashmap_pdf;
 //use crate::thread::person_data_thread::person_data_main;
 // use crate::thread::task_manager::task_manager_main;
-use crate::Routing_Crud::main as crud_operation;
+// use crate::Routing_Crud::main as crud_operation;
 
 // use crate::Testing::simple_testing::main as tesing;
+
+use crate::Axum_server::main as axum_server;
+
+// 
 
 
 /// The `common_struct` module contains common data structures used in the crate.
@@ -54,6 +58,9 @@ pub mod Testing;
 /// The `Routing_crud` module contain an server with crusd operations.
 pub mod Routing_Crud;
 
+/// The `Axum_server` module contain an server.
+pub mod Axum_server;
+
 
 /// The main entry point for the application.
 ///
@@ -77,7 +84,10 @@ pub fn main() {
     // task_manager_main();
     // tesing();
 
-    crud_operation();
+    // crud_operation();
+
+
+    axum_server();
 
     
 }

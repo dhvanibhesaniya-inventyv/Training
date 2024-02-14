@@ -5,7 +5,6 @@ pub mod student_model;
 pub mod employee_model;
 pub mod master_model;
 use axum::{routing::{get, post}, Router};
-use serde::{Deserialize, Serialize};
 use crate::common_struct::{AStudent,AEmployee,MasterData,Message};
 
 use self::student_model::{get_all_Students,get_student_by_id,delete_student_by_id,update_student_by_id,create_student};  

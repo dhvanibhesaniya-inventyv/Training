@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+
+
+# igonre target
+/Rust/Myproject/target/
+
+

@@ -7,7 +7,6 @@ use axum::{
 
 use crate::Axum_server::Users::{ALL_STUDENT, Message,AStudent};
 
-
 // create student data.
 
 // in json body write like this
@@ -133,7 +132,7 @@ pub async fn get_student_by_id(Path(id): Path<u32>) -> Response {
 
 // real all student data
 
-pub async fn get_all_Students() -> Response {
+pub async fn get_all_students() -> Response {
     return {
         Json(Message {
             status: 2000,

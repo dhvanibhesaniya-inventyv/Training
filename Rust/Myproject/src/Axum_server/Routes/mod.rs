@@ -1,7 +1,7 @@
 use axum::Router;
 
 
-use crate::Axum_server::Users::{get_student_route,get_employee_route,get_master_route};
+use crate::Axum_server::Users::{student::get_student_route, employee::get_employee_route, master::get_master_route};
 use crate::Axum_server::health_check::get_status_routes;
 
 

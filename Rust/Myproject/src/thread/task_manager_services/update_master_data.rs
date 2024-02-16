@@ -1,4 +1,4 @@
-use crate::{common_struct::Skill, thread::task_manager::{SKILLS, USER_DATA}};
+use crate::thread::task_manager::{SKILLS, USER_DATA};
 use rand::{thread_rng, Rng};
 
 pub fn update_user_data_randomly() {

@@ -25,6 +25,10 @@ This repository encompasses the work completed during an industrial internship. 
 
 -  Tasks related to the Rust programming language.
 
+
+##
+
+
 Please explore individual folders for detailed information and specific implementations.
 
 Feel free to review, suggest changes, or contribute to this repository. Your feedback is highly appreciated!

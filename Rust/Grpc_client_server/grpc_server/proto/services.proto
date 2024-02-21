@@ -1,0 +1,91 @@
+syntax = "proto3";
+package services;
+
+service StudentData {
+    rpc getStudentData (GetStudentRequest) returns (GetStudentResponse);
+    rpc getStudentId (GetStudentIdRequest) returns (GetStudentIdResponse);
+    rpc deleteStudent (DeteleStudentRequest) returns (DeteleStudentResponse);
+    rpc putStudent (PutStudentRequest) returns (PutStudentResponse);
+    rpc createStudent (CreateStudentRequest) returns (CreateStudentResponse);
+    rpc updateRealJson (UpdateRealJsonRequest) returns (UpdateRealJsonResponse);
+}
+
+
+message GetStudentRequest {
+    string stddata =  1;
+   
+}
+
+message GetStudentResponse {
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
+
+
+
+message GetStudentIdRequest{
+    uint32 id = 1;
+}
+message GetStudentIdResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
+
+
+
+message DeteleStudentRequest{
+    uint32 id = 1;
+}
+message DeteleStudentResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+
+}
+
+message PutStudentRequest{
+    uint32 id = 1;
+    string name = 2;
+    string phone = 3;
+    string email = 4;
+    string city = 5;
+    string address = 6;
+    repeated string marks = 7;
+}
+
+message PutStudentResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+
+}
+
+message CreateStudentRequest{
+    optional uint32 id = 1;
+    string name = 2;
+    string phone = 3;
+    string email = 4;
+    string city = 5;
+    string address = 6;
+    repeated string marks = 7;
+
+} 
+message CreateStudentResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
+
+message UpdateRealJsonRequest{
+    string Updateit = 1;
+}
+
+message UpdateRealJsonResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
+
+

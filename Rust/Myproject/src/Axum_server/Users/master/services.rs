@@ -2,7 +2,7 @@ use axum::{
     extract::Path, response::{IntoResponse, Response}, Json
 };
 
-use crate::Axum_server::Users::{Message, ALL_MASTER,MasterData};
+use crate::Axum_server::Users::{Message, master::model::{ALL_MASTER,MasterData}};
 
 // create master data.
 

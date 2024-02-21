@@ -1,5 +1,6 @@
 use axum::{routing::post, Router};
 pub mod services;
+pub mod model;
 use services::{create_master, delete_master_by_id, get_all_master, get_master_by_id, update_master};
 
 // get master Routes .

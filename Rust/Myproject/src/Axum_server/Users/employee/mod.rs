@@ -2,6 +2,7 @@
 
 use axum::{routing::post, Router};
 pub mod services;
+pub mod model;
 
 use services::{get_all_employee, get_employee_by_id, delete_employee_by_id, update_employee, create_employee};
 

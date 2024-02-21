@@ -16,9 +16,9 @@
 
 // use crate::Testing::simple_testing::main as tesing;
 
-// use crate::Axum_server::main as axum_server;
+use crate::Axum_server::main as axum_server;
 
-use tikv_test::{get_client,add_record, get_record};
+// use tikv_test::{get_client,add_record, get_record};
 
 
  
@@ -71,10 +71,9 @@ pub mod tikv_test;
 ///
 /// It calls functions from various modules to demonstrate functionality.
 /// 
-#[tokio::main]
-pub async fn main() {
-    // Uncomment the functions you want to include in the documentation.
-
+// #[tokio::main]
+pub  fn main() {
+    
     // student_main();
     // employee_main();
     
@@ -94,12 +93,12 @@ pub async fn main() {
     // crud_operation();
 
 
-    // axum_server();
+    axum_server();
 
-    get_client();
+   
     // get_client();
-    add_record("1".to_string(), "value".to_string()).await;
-    get_record("1".to_string()).await;
+    // add_record("1".to_string(), "value".to_string()).await;
+    // get_record("1".to_string()).await;
 
     
 }

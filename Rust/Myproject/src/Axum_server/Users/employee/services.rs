@@ -2,7 +2,7 @@ use axum::{
     extract::Path, response::{IntoResponse, Response}, Json
 };
 
-use crate::Axum_server::Users::{Message, ALL_EMPLOYEE,AEmployee};
+use crate::Axum_server::Users::{Message, employee::model::{ALL_EMPLOYEE,AEmployee}};
 
 
 // create employee data.

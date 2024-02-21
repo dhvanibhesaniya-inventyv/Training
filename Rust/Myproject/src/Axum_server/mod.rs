@@ -9,6 +9,7 @@ pub mod Users;
 pub mod Routes;
 pub mod health_check;
 pub mod middleware;
+pub mod utils;
 
 #[tokio::main]
 pub async fn main() {

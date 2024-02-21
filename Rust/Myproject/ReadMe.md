@@ -40,22 +40,19 @@ Each module contains its own set of functionalities and examples. Feel free to e
 
 If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request. Contributions are always welcome!
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).
+## Additional Information
 
+For Rust documentation, you can run the following commands:
 
-##
-just for info
-##
-#### // rustup doc  // run this anywhere
+- `rustup doc`: This command can be executed anywhere in the Rust environment to access Rust documentation.
+- `rust doc --open`: If you're using a Cargo project, you can use this command (`cargo doc --open`) to generate and open documentation.
 
-##### // rust doc --open  if using a cargo project (cargo doc --open)
+To execute a specific binary file, you can use the following command:
 
-#### // cargo run -q --bin file_name
+- `cargo run -q --bin file_name`
 
-##### //cargo new --lib moduless     // to create a library file
+For creating new Rust projects, you can use the following commands:
 
-##### //cargo new  moduless  --bin // to create a binary file
-
-##### //cargo new  moduless  --bin // to create a binary file
+- `cargo new --lib moduless`: This command creates a library file.
+- `cargo new moduless --bin`: This command creates a binary file.

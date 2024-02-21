@@ -3,6 +3,7 @@ use axum::{routing::post, Router};
 use self::services::{create_student, delete_student_by_id, get_all_students, get_student_by_id, update_student_by_id};
 
 pub mod services;
+pub mod model;
 
 
 

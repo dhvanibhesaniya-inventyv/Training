@@ -21,4 +21,4 @@ config = "0.14"
 hyper = "0.14.28"
 tower-http = { version = "0.3.0", features = ["cors", "trace"] } # added
 
-tikv-client = "0.3.0"
+# tikv-client = "0.3.0"

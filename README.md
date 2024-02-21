@@ -22,11 +22,14 @@ This repository encompasses the work completed during an industrial internship. 
     - Error ratio analysis.
 
 ### 4. Rust:
-
+###### -  ( Must see the content )
 -  Tasks related to the Rust programming language.
 
 
 ##
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 
 Please explore individual folders for detailed information and specific implementations.

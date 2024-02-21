@@ -55,5 +55,6 @@ dkms.conf
 
 # igonre target
 /Rust/Myproject/target/
-
+/Rust/Grpc_client_server/grpc_client/target/
+/Rust/Grpc_client_server/grpc_server/target/
 

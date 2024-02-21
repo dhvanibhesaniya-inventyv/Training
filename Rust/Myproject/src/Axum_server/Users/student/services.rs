@@ -5,7 +5,7 @@ use axum::{
     Json,
 };
 
-use crate::Axum_server::Users::{ALL_STUDENT, Message,AStudent};
+use crate::Axum_server::Users::{student::model::{ALL_STUDENT,AStudent}, Message};
 
 // create student data.
 

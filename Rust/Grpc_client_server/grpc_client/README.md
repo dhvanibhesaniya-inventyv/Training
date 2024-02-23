@@ -1,4 +1,4 @@
-### Grpc_client 
+## Grpc_client 
 
 #### Overview
 This Rust module serves as the client side of the gRPC communication in the `Grpc_client_server` project. It calls functions and passes request parameters for CRUD operations to the server module.

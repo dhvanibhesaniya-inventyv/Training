@@ -10,6 +10,27 @@ service StudentData {
     rpc updateRealJson (UpdateRealJsonRequest) returns (UpdateRealJsonResponse);
 }
 
+service EmployeeData{
+    rpc getEmployeeData (GetEmployeeRequest) returns (GetEmployeeResponse);
+    rpc getEmployeeId (GetEmployeeIdRequest) returns (GetEmployeeIdResponse);
+    rpc deleteEmployee (DeteleEmployeeRequest) returns (DeteleEmployeeResponse);
+    rpc putEmployee (PutEmployeeRequest) returns (PutEmployeeResponse);
+    rpc createEmployee (CreateEmployeeRequest) returns (CreateEmployeeResponse);
+    rpc updateERealJson (UpdateERealJsonRequest) returns (UpdateERealJsonResponse);
+}
+
+service MasterData{
+    rpc getMasterData (GetMasterRequest) returns (GetMasterResponse);
+    rpc getMasterId (GetMasterIdRequest) returns (GetMasterIdResponse);
+    rpc deleteMaster (DeteleMasterRequest) returns (DeteleMasterResponse);
+    rpc putMaster (PutMasterRequest) returns (PutMasterResponse);
+    rpc createMaster (CreateMasterRequest) returns (CreateMasterResponse);
+    rpc updateMRealJson (UpdateMRealJsonRequest) returns (UpdateMRealJsonResponse);
+}
+
+
+
+// student
 
 message GetStudentRequest {
     string stddata =  1;
@@ -88,4 +109,166 @@ message UpdateRealJsonResponse{
     string data =3;
 }
 
+
+
+//  Employee
+
+
+message GetEmployeeRequest {
+    string empdata =  1;
+   
+}
+
+message GetEmployeeResponse {
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
+
+
+
+message GetEmployeeIdRequest{
+    uint32 id = 1;
+}
+message GetEmployeeIdResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
+
+
+
+message DeteleEmployeeRequest{
+    uint32 id = 1;
+}
+message DeteleEmployeeResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+
+}
+
+message PutEmployeeRequest{
+    uint32 id = 1;
+    string name = 2;
+    uint32 age = 3;
+    repeated string skill = 4;
+    optional string position = 5;
+    optional uint32 exprience = 6;
+    
+}
+
+message PutEmployeeResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+
+}
+
+message CreateEmployeeRequest{
+    optional uint32 id = 1;
+    string name = 2;
+    uint32 age = 3;
+    repeated string skill = 4;
+    optional string position = 5;
+    optional uint32 exprience = 6;
+
+} 
+message CreateEmployeeResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
+
+message UpdateERealJsonRequest{
+    string Updateit = 1;
+}
+
+message UpdateERealJsonResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
+
+
+// Master
+
+
+
+//  Employee
+
+
+message GetMasterRequest {
+    string mstdata =  1;
+   
+}
+
+message GetMasterResponse {
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
+
+
+
+message GetMasterIdRequest{
+    uint32 id = 1;
+}
+message GetMasterIdResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
+
+
+
+message DeteleMasterRequest{
+    uint32 id = 1;
+}
+message DeteleMasterResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+
+}
+
+message PutMasterRequest{
+    uint32 id = 1;
+    string name = 2;
+    repeated string skill = 3;
+    string status = 4;
+    string language = 5;
+    
+}
+
+message PutMasterResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+
+}
+
+message CreateMasterRequest{
+    optional uint32 id = 1;
+    string name = 2;
+    repeated string skill = 3;
+    string status = 4;
+    string language = 5;
+
+} 
+message CreateMasterResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
+
+message UpdateMRealJsonRequest{
+    string Updateit = 1;
+}
+
+message UpdateMRealJsonResponse{
+    int32 status =1;
+    string message_key=2;
+    string data =3;
+}
 

@@ -1,4 +1,4 @@
-### Grpc_server 
+## Grpc_server 
 
 #### Overview
 This Rust module is the server side of the gRPC communication in the `Grpc_client_server` project. It contains implementations for various CRUD operations based on the requests received from the client module.

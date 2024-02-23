@@ -1,4 +1,4 @@
-### Grpc_client_server 
+## Grpc_client_server 
 
 #### Overview
 This Rust project implements a client-server architecture using gRPC communication. It consists of client and server modules for handling CRUD operations.

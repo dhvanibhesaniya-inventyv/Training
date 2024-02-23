@@ -9,7 +9,7 @@
 // use crate::area::main as area_main;
 // use crate::employee_hashmap::employee_hashmap_main;
 // use crate::student_hashmap::student_hashmap_main;
-// use crate::table_task_hashmap::table_task_hashmap_pdf;
+use crate::table_task_hashmap::table_task_hashmap_pdf;
 //use crate::thread::person_data_thread::person_data_main;
 // use crate::thread::task_manager::task_manager_main;
 // use crate::Routing_Crud::main as crud_operation;
@@ -84,7 +84,7 @@ pub  fn main() {
     // area_main();
     // employee_hashmap_main();
     // student_hashmap_main()
-    // table_task_hashmap_pdf();
+    table_task_hashmap_pdf();
 
     // person_data_main();
     // task_manager_main();
@@ -93,7 +93,7 @@ pub  fn main() {
     // crud_operation();
 
 
-    axum_server();
+    // axum_server();
 
    
     // get_client();

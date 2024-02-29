@@ -59,4 +59,5 @@ dkms.conf
 /Rust/Grpc_client_server/grpc_server/target/
 /Rust/Wasm/wasm-table-project/target/
 /Rust/Wasm/wasm-table-project/pkg/
+/Rust/.vscode/
 

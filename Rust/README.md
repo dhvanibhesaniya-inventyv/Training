@@ -1,7 +1,7 @@
 # Rust 
 
 #### Overview
-This repository contains two projects written in Rust: `MyProject` , `Grpc_client_server` , `Wasm` and `tikv-crud`.
+This repository contains projects written in Rust: `MyProject` , `Grpc_client_server` , `Wasm` and `tikv-crud`.
 
 ## [MyProject](https://github.com/dhvanibhesaniya-inventyv/Training/tree/main/Rust/Myproject)
 This repository serves as a collection of Rust modules showcasing various functionalities and examples. Each module provides insights into different aspects of Rust programming.

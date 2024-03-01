@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":["person_data_thread","task_manager","task_manager_services"]};

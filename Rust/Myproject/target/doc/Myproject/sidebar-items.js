@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["main"],"mod":["Routing_Crud","Testing","area","common_struct","employee","employee_hashmap","student","student_hashmap","table_task","table_task_hashmap","thread","two_string"]};

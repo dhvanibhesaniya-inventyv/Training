@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":["Available","Language","Level","Position","Skill","Skills","Status"],"fn":["read_user_input"],"mod":["table_hashmap_struct_enum"],"struct":["Area","Cell","Employee","Individual","PersonData","RequestData","Row","Student","Table"]};

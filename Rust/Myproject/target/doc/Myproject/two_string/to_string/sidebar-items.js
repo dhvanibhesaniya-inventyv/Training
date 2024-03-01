@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["replace_underscore","two_string_main"]};

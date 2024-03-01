@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":["biforcation_level_service","biforcation_services","generate_random_data","task_assigner_hash","update_master_data"]};

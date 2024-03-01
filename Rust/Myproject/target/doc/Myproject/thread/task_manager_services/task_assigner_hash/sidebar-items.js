@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["task_assigner_from_hash_main"]};

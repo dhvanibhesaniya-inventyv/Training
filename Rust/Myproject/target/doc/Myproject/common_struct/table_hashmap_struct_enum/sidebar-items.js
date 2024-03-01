@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":["DataType"],"struct":["Cell","DataRow","HeaderRow","JsonData","Row","Table"]};

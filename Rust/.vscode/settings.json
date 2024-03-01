@@ -4,6 +4,7 @@
         ".\\Myproject\\Cargo.toml",
         ".\\Grpc_client_server\\grpc_server\\Cargo.toml",
         ".\\Grpc_client_server\\grpc_client\\Cargo.toml",
-        ".\\Wasm\\wasm-table-project\\Cargo.toml"
+        ".\\Wasm\\wasm-table-project\\Cargo.toml",
+        ".\\tikv-crud\\Cargo.toml"
     ]
 }

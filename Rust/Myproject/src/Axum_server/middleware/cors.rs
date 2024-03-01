@@ -1,16 +1,16 @@
 use axum::http::HeaderName;
-// use hyper::header;
+use hyper::header;
 use tower_http::cors::{AllowOrigin, Any, CorsLayer};
 
 pub fn get_cors_middleware() -> CorsLayer {
-    // let allowed_headers = vec![
-    //     header::CONTENT_TYPE
-    // ];
+    let allowed_headers = vec![
+        header::CONTENT_TYPE
+    ];
     CorsLayer::new()
         .allow_origin(
             AllowOrigin::any()
         )
-        .allow_headers(Any)
+        .allow_headers(allowed_headers)   // (Any)
         .allow_methods([
             axum::http::Method::POST,
             axum::http::Method::GET,

@@ -14,13 +14,13 @@ This project is aimed at demonstrating how to use WebAssembly (Wasm) in a Rust p
 -  `cargo new --lib wasm-table-project`  - create new project with library  type.
 
  -  in Cargo.toml file put this dependencies and library type.
- `[lib]`
+ -- `[lib]`
 
- `crate-type = ["cdylib","rlib"]`
+ -- `crate-type = ["cdylib","rlib"]`
 
- `[dependencies]`
+ -- `[dependencies]`
 
- `wasm-bindgen = "0.2.91"`
+ -- `wasm-bindgen = "0.2.91"`
 
 -  build pkg file with selected target. For example:
  `wasm-pack build --target nodejs`

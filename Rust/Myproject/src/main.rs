@@ -16,9 +16,11 @@ use crate::table_task_hashmap::table_task_hashmap_pdf;
 
 // use crate::Testing::simple_testing::main as tesing;
 
-use crate::Axum_server::main as axum_server;
+// use crate::Axum_server::main as axum_server;
 
 // use tikv_test::{get_client,add_record, get_record};
+
+// use rust_config::main as rust_config_main;
 
 
  
@@ -66,6 +68,7 @@ pub mod Axum_server;
 
 pub mod tikv_test;
 
+pub mod rust_config;
 
 /// The main entry point for the application.
 ///
@@ -99,6 +102,8 @@ pub  fn main() {
     // get_client();
     // add_record("1".to_string(), "value".to_string()).await;
     // get_record("1".to_string()).await;
+
+    // rust_config_main();
 
     
 }

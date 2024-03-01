@@ -56,3 +56,5 @@ For creating new Rust projects, you can use the following commands:
 
 - `cargo new --lib moduless`: This command creates a library file.
 - `cargo new moduless --bin`: This command creates a binary file.
+- `cargo watch -x run`: This command with make compile the code at every change but ,
+                        to use this install it globally by this command `cargo install cargo-watch`.

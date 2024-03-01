@@ -177,10 +177,10 @@ function isSingleDigitPrime(num) {
 #
 
 # Output :
-![Pascal triangle](https://github.com/DhvaniBhesaniya09/Training/assets/153286337/b27f630d-6112-4c83-a336-3a39021ca36d)
+![Pascal triangle](https://github.com/dhvanibhesaniya-inventyv/Training/assets/153286337/b27f630d-6112-4c83-a336-3a39021ca36d)
 #
 
 # Author :
 
-[DHVANI BHESANIYA . J](https://github.com/DhvaniBhesaniya09/)
+[DHVANI BHESANIYA . J](https://github.com/dhvanibhesaniya-inventyv/)
 

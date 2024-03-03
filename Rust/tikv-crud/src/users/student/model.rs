@@ -1,7 +1,7 @@
 
 use serde::{Deserialize, Serialize};
-use std::fs;
-
+use std::{fs, sync::{Arc, RwLock}};
+use lazy_static::lazy_static;
 
 #[derive(Debug, Serialize, Deserialize,Clone)]
 pub struct Student {
@@ -36,10 +36,12 @@ pub fn parse_json_data(filename:String) -> Vec<Student> {
 pub fn allidstd()-> Vec<String>{
 
     let  all_id:Vec<String> = vec!["student_1".to_string(),"student_2".to_string(),"student_3".to_string(),"student_4".to_string(),"student_5".to_string()];
+    println!("{:#?}",all_id);
     all_id
 }
 
  
+
 // lazy_static! {
 
 //     #[derive(Debug)]

@@ -4,20 +4,15 @@ use axum::{extract::Path,response::{IntoResponse, Response}, Json};
 
 use crate::utils::db_config;
 
-use super::model::{Message, Student,allidstd};
+use super::model::{Message, Student,ALL_ID_COUNT};
 
 
 pub async fn get_student_data() -> Response {
 
-    let allids = allidstd();
-    let last_id = allidstd().len();
- 
-    let start_key = allids.first().unwrap().clone();
+    let fkey_ekey = get_count();
 
-    let end_key = format!("student_{}",last_id +1);
-
-   
-    let data = match db_config::scan_data(start_key, end_key).await {
+   // "s".to_string(),"".to_string()    using this also as start key and end key this will give data of the studentid values.
+    let data = match db_config::scan_data(fkey_ekey.0,fkey_ekey.1).await {
         Ok(data) => data,
         Err(_) => {
             
@@ -30,16 +25,21 @@ pub async fn get_student_data() -> Response {
         }
     };
 
-  
-let values: Vec<String> = data.into_iter()
-.map(|(_, value)| String::from_utf8(value).unwrap())
-.collect();
+let mut deserialized_values: Vec<Student> = Vec::new();
+
+for (_, value) in data {
+    if let Ok(student_str) = String::from_utf8(value) {
+        if let Ok(student) = serde_json::from_str::<Student>(&student_str) {
+            deserialized_values.push(student);
+        }
+    }
+}
 
     
     let message = Message {
         status: 200,
         message_key: String::from("success"),
-        data: values,
+        data: deserialized_values,
     };
 
    
@@ -64,6 +64,7 @@ pub async fn get_student_id(Path(id): Path<i32>) -> Response {
                         message_key: err.to_string(),
                         data: String::from("Failed to deserialize student data"),
                     };
+                   
                     return Json(message).into_response();
                 }
             };
@@ -113,14 +114,11 @@ pub async fn delete_student_id(Path(id): Path<i32>) -> Response {
 
 
 pub async fn delete_all_student() -> Response {
-    let allids = allidstd();
-    let last_id = allidstd().len();
+    let fkey_ekey = get_count();
  
-    let start_key = allids.first().unwrap().clone();
-    let end_key = format!("student_{}",last_id +1);
-
+  
     
-    let deletion_result = db_config::delete_data_range(start_key, end_key).await;
+    let deletion_result = db_config::delete_data_range(fkey_ekey.0,fkey_ekey.1).await;
 
     if deletion_result {
         let message = Message {
@@ -172,16 +170,11 @@ pub async fn update_student_id(Path(id):Path<i32>,Json(new_student): Json<Studen
 pub async fn create_student(Json(new_students): Json<Vec<Student>>) -> Response {
     let mut response_data: Vec<String> = Vec::new();
 
+ 
     
-    let mut all_ids = allidstd();
-
     for new_student in new_students.iter() {
-     
-        let new_id = format!("student_{}", all_ids.len() + 1);
-     
-        all_ids.push(new_id.clone());
+        let  new_id = update_count();
 
-        
         let got_student_data = serde_json::to_string(&new_student).expect("Failed to serialize new student data");
 
         
@@ -211,4 +204,25 @@ pub async fn create_student(Json(new_students): Json<Vec<Student>>) -> Response 
     };
 
     Json(message).into_response()
+}
+
+fn update_count()->String{
+   
+    let mut  update_idcount = ALL_ID_COUNT.write().unwrap();
+
+    let value = update_idcount.len() +1;
+    let format = format!("student_{}",value);
+    update_idcount.push(format.clone());
+    format
+}
+
+
+fn get_count()->(String,String){
+    let get_valuues = ALL_ID_COUNT.read().unwrap();
+let fkey = get_valuues.first().unwrap().clone();
+    let ekey = get_valuues.len() +1;
+    let ekeyformat = format!("student_{}",ekey);
+ 
+    (fkey,ekeyformat)
+
 }

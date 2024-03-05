@@ -3,6 +3,8 @@ use tikv_client::RawClient;
 use std::{fs, sync::{Arc, RwLock}};
 use lazy_static::lazy_static;
 
+use crate::utils::db_config::get_client;
+
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Student {
     pub s_id: i32,
@@ -21,13 +23,6 @@ pub struct Message<T> {
     pub data: T,
 }
 
-pub fn parse_json_data(filename: &str) -> Vec<Student> {
-    let json_data = fs::read_to_string(filename)
-        .expect("Failed to read the JSON file");
-    serde_json::from_str(&json_data)
-        .expect("Failed to parse JSON")
-}
-
 lazy_static! {
     pub static ref ALL_ID_COUNT: Arc<RwLock<Vec<String>>> = {
         let all_id: Vec<String> = vec![
@@ -40,6 +35,15 @@ lazy_static! {
         Arc::new(RwLock::new(all_id))
     };
 }
+
+
+pub fn parse_json_data(filename: &str) -> Vec<Student> {
+    let json_data = fs::read_to_string(filename)
+        .expect("Failed to read the JSON file");
+    serde_json::from_str(&json_data)
+        .expect("Failed to parse JSON")
+}
+
 
 pub async fn store_data_in_tikv(students: Vec<Student>, client: &RawClient) {
     let mut counter = 1; 
@@ -54,7 +58,7 @@ pub async fn store_data_in_tikv(students: Vec<Student>, client: &RawClient) {
 }
 
 pub async fn student_data_loading() {
-    let client = RawClient::new(vec!["127.0.0.1:2379"]).await.unwrap();
+    let client = get_client().await.unwrap();
     let students = parse_json_data("./json_files/StudentData.json");
     store_data_in_tikv(students, &client).await;
 }

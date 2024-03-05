@@ -1,75 +1,126 @@
 
 // use std::thread;
 
-use tikv_client::{Key, RawClient,  Value};
+
+use lazy_static::lazy_static;
+
+use tikv_client::{Key, RawClient, Value};
+use tokio::sync::OnceCell;
 
 
 
-pub async fn get_client()->RawClient{
-  
-  RawClient::new(vec!["127.0.0.1:2379"]).await.unwrap()
+lazy_static! {
+    static ref CLIENT: OnceCell<RawClient> = OnceCell::new();
 
 }
+
+
+// get client fn
+pub async fn get_client() -> Result<RawClient, String> {
+    match CLIENT.get() {
+        Some(_) => {
+            if let Some(client) = CLIENT.get() {
+                Ok(client.to_owned())
+            } else {
+                Err("Failed to retrieve client".to_string())
+            }
+        }
+        None => {
+            match RawClient::new(vec!["127.0.0.1:2379"]).await {
+                Ok(client) => {
+                    CLIENT.get_or_init(|| async { client }).await;
+                    if let Some(client) = CLIENT.get() {
+                        Ok(client.to_owned())
+                    } else {
+                        Err("Failed to retrieve client".to_string())
+                    }
+                }
+                Err(err) => Err(err.to_string()),
+            }
+        }
+    }
+}
  
+
+
+// scan data fn 
 pub async fn scan_data(start_key: String, end_key: String) -> Result<Vec<(Key, Value)>, String> {
-  let client = get_client().await;
- 
-  let data = match client.scan(Key::from(start_key)..Key::from(end_key), 10).await {
-      Ok(data) => data,
-      Err(err) => return Err(format!("Error scanning data: {}", err)),
-  };
-  let key_value_pairs: Vec<(Key, Value)> = data.into_iter().map(|kv_pair| (kv_pair.0,kv_pair.1)).collect();
-  Ok(key_value_pairs)
+    match get_client().await {
+        Ok(client) => {
+            match client.scan(Key::from(start_key)..Key::from(end_key), 10).await {
+                Ok(data) => {
+                    let key_value_pairs: Vec<(Key, Value)> = data.into_iter().map(|kv_pair| (kv_pair.0,kv_pair.1)).collect();
+                    Ok(key_value_pairs)
+                }
+                Err(err) => Err(format!("Error scanning data: {}", err)),
+            }
+        }
+        Err(err) => Err(format!("Error getting client: {}", err)),
+    }
 }
 
+
+
+
+
+// get data fn
 pub async fn get_data(key: String) -> Result<String, String> {
-  let client = get_client().await;
-
-  match client.get(key).await {
-      Ok(Some(value)) => {
-          let final_value = String::from_utf8_lossy(&value).to_string();
-          Ok(final_value)
-      }
-      Ok(None) => {
-          Err("Data not found".to_string())
-      }
-      Err(err) => Err(format!("Error: {}", err)),
-  }
+    match get_client().await {
+        Ok(client) => {
+            match client.get(key).await {
+                Ok(Some(value)) => {
+                    let final_value = String::from_utf8(value).unwrap();
+                    Ok(final_value)
+                }
+                Ok(None) => Err("Data not found".to_string()),
+                Err(err) => Err(format!("Error: {}", err)),
+            }
+        }
+        Err(err) => Err(format!("Error: {}", err)),
+    }
 }
 
-pub async fn delete_data(key:String)->bool{
-  let client = get_client().await;
- 
-    match client.delete(key.clone()).await {
-      Ok(_) => {
-           
-          true
-      }
-      Err(_) => {
-          
-          false
-      }
-  }
+
+// delete data fn
+
+pub async fn delete_data(key: String) -> bool {
+    match get_client().await {
+        Ok(client) => {
+            match client.delete(key.clone()).await {
+                Ok(_) => true,
+                Err(_) => false,
+            }
+        }
+        Err(_) => false,
+    }
 }
 
-pub async fn delete_data_range(skey:String,ekey:String)->bool{
+// delete range fn
 
-  let client = get_client().await;
+pub async fn delete_data_range(skey: String, ekey: String) -> bool {
+    match get_client().await {
+        Ok(client) => {
+            match client.delete_range(skey..=ekey).await {
+                Ok(_) => true,
+                Err(_) => false,
+            }
+        }
+        Err(_) => false,
+    }
+}
 
-  match client.delete_range(skey..=ekey).await {
-    Ok(_) => true, 
-    Err(_) => false,
-}
- 
-}
+// put data fn
 
 pub async fn put_data(key: String, value: String) -> Result<String, String> {
-  let client = get_client().await;
-
-  match client.put(key.clone(), value).await {
-      Ok(_) => Ok(format!("Data stored successfully for key: {}", key)),
-      Err(err) => Err(format!("Error storing data: {}", err)),
-  }
+    match get_client().await {
+        Ok(client) => {
+            match client.put(key.clone(), value).await {
+                Ok(_) => Ok(format!("Data stored successfully for key: {}", key)),
+                Err(err) => Err(format!("Error storing data: {}", err)),
+            }
+        }
+        Err(_) => Err("Failed to get client".to_string()),
+    }
 }
 
 
@@ -91,70 +142,3 @@ pub async fn put_data(key: String, value: String) -> Result<String, String> {
 // }
 // }
  
-// pub async fn delete_data(key: String) -> bool {
-  // match get_client().await {
-      // Ok(client) => {
-          // match client.delete(key).await {
-              // Ok(_) => true,
-              // Err(_) => false,
-          // }
-      // }
-      // Err(_) => false,
-  // }
-// }
-
-
-// pub async fn delete_data_range(skey: String, ekey: String) -> bool {
-  // match get_client().await {
-      // Ok(client) => {
-          // match client.delete_range(skey..=ekey).await {
-              // Ok(_) => true,
-              // Err(_) => false,
-          // }
-      // }
-      // Err(_) => false,
-  // }
-// }
- 
-// pub async fn put_data(key: String, value: String) -> Result<String, String> {
-  // match get_client().await {
-      // Ok(client) => {
-          // match client.put(key.clone(), value).await {
-              // Ok(_) => Ok(format!("Data stored successfully for key: {}", key)),
-              // Err(err) => Err(format!("Error storing data: {}", err)),
-          // }
-      // }
-      // Err(_) => Err("Failed to get database connection".to_string()),
-  // }
-// }
- 
-// pub async fn scan_data(start_key: String, end_key: String) -> Result<Vec<(Key, Value)>, String> {
-  // match get_client().await {
-      // Ok(client) => {
-          // match client.scan(Key::from(start_key)..Key::from(end_key), 10).await {
-              // Ok(data) => {
-                  // let key_value_pairs: Vec<(Key, Value)> = data.into_iter().map(|kv_pair| (kv_pair.0, kv_pair.1)).collect();
-                  // Ok(key_value_pairs)
-              // }
-              // Err(err) => Err(format!("Error scanning data: {}", err)),
-          // }
-      // }
-      // Err(_) => Err("Failed to get database connection".to_string()),
-  // }
-// }
-
-// pub async fn get_data(key: String) -> Result<String, String> {
-  // match get_client().await {
-      // Ok(client) => {
-          // match client.get(key).await {
-              // Ok(Some(value)) => {
-                  // let final_value = String::from_utf8_lossy(&value).to_string();
-                  // Ok(final_value)
-              // }
-              // Ok(None) => Err("Data not found".to_string()),
-              // Err(err) => Err(format!("Error: {}", err)),
-          // }
-      // }
-      // Err(_) => Err("Failed to get database connection".to_string()),
-  // }
-// }

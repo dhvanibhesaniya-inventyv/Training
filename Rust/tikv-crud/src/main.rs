@@ -16,7 +16,7 @@ use crate::utils::logger;
 #[tokio::main]
 async fn main() {
   
-  get_client().await;
+  let _ = get_client().await;
       // Initialize Logger
       logger::startLogger();
 

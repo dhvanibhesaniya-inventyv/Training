@@ -20,5 +20,5 @@ pub fn api() -> Router {
 
 // to do !!!!!!!!!!!!!!!!!!
 
-// delete all students    -- done
-// add multiple or single entity vector means one or more then one data   -- done
+// delete all students
+// add multiple or single entity vector means one or more then one data

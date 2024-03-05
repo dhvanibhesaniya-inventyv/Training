@@ -61,4 +61,6 @@ dkms.conf
 /Rust/Wasm/wasm-table-project/pkg/
 /Rust/tikv-crud/target/
 /Rust/.vscode/
+/Rust/tikv-crud/src/utils/docker_command.txt
+/Rust/tikv-crud/src/utils/tikv_doc.txt
 

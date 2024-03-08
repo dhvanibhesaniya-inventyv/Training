@@ -83,29 +83,29 @@ pub async fn get_data(key: String) -> Result<String, String> {
 
 // delete data fn
 
-pub async fn delete_data(key: String) -> bool {
+pub async fn delete_data(key: String) -> Result<String, String> {
     match get_client().await {
         Ok(client) => {
             match client.delete(key.clone()).await {
-                Ok(_) => true,
-                Err(_) => false,
+                Ok(_) => Ok(format!("Data deleted successfully for key: {} ",key)),
+                Err(err) => Err(format!("Error in deleting data")),
             }
         }
-        Err(_) => false,
+        Err(_) =>  Err("Failed to get client".to_string()),
     }
 }
 
 // delete range fn
 
-pub async fn delete_data_range(skey: String, ekey: String) -> bool {
+pub async fn delete_data_range(skey: String, ekey: String) -> Result<String, String> {
     match get_client().await {
         Ok(client) => {
             match client.delete_range(skey..=ekey).await {
-                Ok(_) => true,
-                Err(_) => false,
+                Ok(_) => Ok(format!("Data deleted successfully forom startkey: {} to endkey: {}", skey,ekey)),
+                Err(err) => Err(format!("Error in deleting data")),
             }
         }
-        Err(_) => false,
+        Err(_) =>Err("Failed to get client".to_string()),
     }
 }
 

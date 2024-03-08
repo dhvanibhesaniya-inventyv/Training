@@ -63,4 +63,5 @@ dkms.conf
 /Rust/.vscode/
 /Rust/tikv-crud/src/utils/docker_command.txt
 /Rust/tikv-crud/src/utils/tikv_doc.txt
+/Rust/tikv-crud/elasticsearch/
 

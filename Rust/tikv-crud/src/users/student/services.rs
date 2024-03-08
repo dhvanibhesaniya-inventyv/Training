@@ -94,7 +94,7 @@ pub async fn delete_student_id(Path(id): Path<i32>) -> Response {
     let deletion_result = db_config::delete_data(format!("student_{}", id)).await;
 
    
-    if deletion_result {
+    if let Ok(_data) = deletion_result {
       
         let message = Message {
             status: 200,
@@ -123,7 +123,7 @@ pub async fn delete_all_student() -> Response {
     
     let deletion_result = db_config::delete_data_range(fkey_ekey.0,fkey_ekey.1).await;
 
-    if deletion_result {
+    if let Ok(_data) = deletion_result {
         let message = Message {
             status: 200,
             message_key: String::from("success"),

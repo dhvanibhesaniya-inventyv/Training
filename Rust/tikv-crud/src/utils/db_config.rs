@@ -100,7 +100,7 @@ pub async fn delete_data(key: String) -> Result<String, String> {
 pub async fn delete_data_range(skey: String, ekey: String) -> Result<String, String> {
     match get_client().await {
         Ok(client) => {
-            match client.delete_range(skey..=ekey).await {
+            match client.delete_range(skey.clone()..=ekey.clone()).await {
                 Ok(_) => Ok(format!("Data deleted successfully forom startkey: {} to endkey: {}", skey,ekey)),
                 Err(err) => Err(format!("Error in deleting data")),
             }

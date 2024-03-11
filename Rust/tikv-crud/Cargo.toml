@@ -14,6 +14,9 @@ tikv-client = "0.3.0"
 tokio = { version = "1.36.0", features = ["full"] }
 lazy_static = "1.4.0"
 
+
+elasticsearch = "8.5.0-alpha.1"
+
 log = "0.4.17"   # for logger
 log4rs = { version ="1.0.0", features = ["gzip"] }
 config = "0.13.2"   #for config

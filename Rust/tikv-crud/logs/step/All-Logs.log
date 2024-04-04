@@ -1,0 +1,1 @@
+{"time":"2024-03-12T16:00:02.454286400+05:30","level":"ERROR","message":"failde to connect elastic client","module_path":"tikv_crud","file":"src\\main.rs","line":43,"target":"tikv_crud","thread":"main","thread_id":7164,"mdc":{}}
